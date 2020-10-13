@@ -1,14 +1,13 @@
 {
-  "openapi": "3.0.0",
+  "swagger": "2.0",
   "info": {
-    "title": "AzureBlockchainServices",
-    "description": "Swagger Documentation for ABS",
-    "version": "v1"
+    "title": "BlockchainManagementClient",
+    "description": "REST API for Azure Blockchain Service",
+    "version": "2018-06-01-preview"
   },
-  "servers": [
-    {
-      "url": "https://management.azure.com"
-    }
+  "host": "managemen.azure.com",
+  "schemes": [
+    "http"
   ],
   "paths": {
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}/operations/{operationId}": {
@@ -19,92 +18,62 @@
         "operationId": "BlockchainMemberOperationResult_GetOperationResult",
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "operationId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 4
+            "x-nullable": true
           },
           {
+            "type": "boolean",
             "name": "monitor",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 5
+            "x-nullable": false
           },
           {
+            "type": "string",
             "name": "api-version",
             "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 6
+            "x-nullable": true
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "Get OperationResult for BlockchainMember\nor\nGet OperationResult for BlockchainMember",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            },
+            "schema": {},
             "x-expectedSchemas": [
               {
                 "description": "Get OperationResult for BlockchainMember",
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/OperationResult"
-                    }
-                  ]
+                  "$ref": "#/definitions/OperationResult"
                 }
               },
               {
                 "description": "Get OperationResult for BlockchainMember",
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/BlockchainMember"
-                    }
-                  ]
+                  "$ref": "#/definitions/BlockchainMember"
                 }
               }
             ]
@@ -124,60 +93,50 @@
           "CordaMember"
         ],
         "operationId": "CordaMember_Get",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "cordaMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CordaMember"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/CordaMember"
             }
           },
           "404": {
             "description": ""
           },
           "default": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CloudError"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/CloudError"
             }
           }
         }
@@ -187,79 +146,69 @@
           "CordaMember"
         ],
         "operationId": "CordaMember_Put",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "cordaMemberName",
             "in": "path",
             "required": true,
+            "x-nullable": true
+          },
+          {
+            "name": "cordaMember",
+            "in": "body",
+            "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "$ref": "#/definitions/CordaMember"
             },
-            "x-position": 3
+            "x-nullable": false
           }
         ],
-        "requestBody": {
-          "x-name": "cordaMember",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CordaMember"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 4
-        },
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ControlledTaskOfActionResultOfCordaMember"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/ControlledTaskOfActionResultOfCordaMember"
             }
           },
           "201": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ControlledTaskOfActionResultOfCordaMember"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/ControlledTaskOfActionResultOfCordaMember"
             }
           },
           "default": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CloudError"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/CloudError"
             }
           }
         }
@@ -269,45 +218,38 @@
           "CordaMember"
         ],
         "operationId": "CordaMember_Delete",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "cordaMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "api-version",
             "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 4
+            "x-nullable": true
           }
         ],
         "responses": {
@@ -318,13 +260,10 @@
             "description": ""
           },
           "default": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CloudError"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/CloudError"
             }
           }
         }
@@ -334,72 +273,65 @@
           "CordaMember"
         ],
         "operationId": "CordaMember_Patch",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "cordaMemberName",
             "in": "path",
             "required": true,
+            "x-nullable": true
+          },
+          {
+            "name": "cordaMember",
+            "in": "body",
+            "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "$ref": "#/definitions/CordaMember"
             },
-            "x-position": 3
+            "x-nullable": false
           }
         ],
-        "requestBody": {
-          "x-name": "cordaMember",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CordaMember"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 4
-        },
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ControlledTaskOfActionResultOfBlockchainMember"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/ControlledTaskOfActionResultOfBlockchainMember"
             }
           },
           "204": {
             "description": ""
           },
           "default": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CloudError"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/CloudError"
             }
           }
         }
@@ -411,47 +343,40 @@
           "CordaMember"
         ],
         "operationId": "CordaMember_List",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CordaMemberCollection"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/CordaMemberCollection"
             }
           },
           "default": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CloudError"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/CloudError"
             }
           }
         }
@@ -463,37 +388,33 @@
           "CordaMember"
         ],
         "operationId": "CordaMember_ListAll",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CordaMemberCollection"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/CordaMemberCollection"
             }
           },
           "default": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CloudError"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/CloudError"
             }
           }
         }
@@ -505,87 +426,73 @@
           "HLFIdentity"
         ],
         "operationId": "HLFIdentity_ListServiceConnectionProfile",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 4
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 5
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 7
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 8
+            "x-nullable": false
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HLFConnectionProfile"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/HLFConnectionProfile"
             }
           },
           "400": {
@@ -606,87 +513,73 @@
           "HLFIdentity"
         ],
         "operationId": "HLFIdentity_ListMemberMSP",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 4
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 5
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 7
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 8
+            "x-nullable": false
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HLFMembershipServiceProvider"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/HLFMembershipServiceProvider"
             }
           },
           "400": {
@@ -707,88 +600,81 @@
           "Location"
         ],
         "operationId": "Location_CheckNameAvailability",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "name": "nameAvailabilityRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NameAvailabilityRequest"
+            },
+            "x-nullable": false
+          },
+          {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 3
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 4
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 5
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 7
+            "x-nullable": false
           },
           {
+            "type": "string",
             "name": "locationName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 8
+            "x-nullable": false
           }
         ],
-        "requestBody": {
-          "x-name": "nameAvailabilityRequest",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NameAvailabilityRequest"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 2
-        },
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NameAvailability"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/NameAvailability"
             }
           },
           "400": {
@@ -803,76 +689,66 @@
           "Location"
         ],
         "operationId": "Location_ListAvailableConsortiums",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 2
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 3
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 4
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 5
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "string",
             "name": "locationName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 7
+            "x-nullable": false
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ConsortiumCollection"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/ConsortiumCollection"
             }
           },
           "400": {
@@ -887,15 +763,17 @@
           "Operation"
         ],
         "operationId": "Operation_List",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceProviderOperationCollection"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/ResourceProviderOperationCollection"
             }
           },
           "400": {
@@ -910,15 +788,17 @@
           "Sku"
         ],
         "operationId": "Sku_List",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceTypeSkuCollection"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/ResourceTypeSkuCollection"
             }
           }
         }
@@ -930,70 +810,63 @@
           "Subscription"
         ],
         "operationId": "Subscription_Put",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "name": "subscriptionRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Subscription"
+            },
+            "x-nullable": false
+          },
+          {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 3
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 4
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 5
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 7
+            "x-nullable": false
           }
         ],
-        "requestBody": {
-          "x-name": "subscriptionRequest",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Subscription"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 2
-        },
         "responses": {
           "200": {
             "description": ""
@@ -1007,97 +880,80 @@
           "OrdererNode"
         ],
         "operationId": "OrdererNode_Get",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "ordererNodeName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 4
+            "x-nullable": true
           },
           {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 5
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 7
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 8
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 9
+            "x-nullable": false
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HLFOrdererNode"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/HLFOrdererNode"
             }
           },
           "400": {
@@ -1116,106 +972,86 @@
           "OrdererNode"
         ],
         "operationId": "OrdererNode_Create",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "ordererNodeName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 4
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "api-version",
             "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 5
+            "x-nullable": true
           },
           {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 7
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 8
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 9
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 10
+            "x-nullable": false
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HLFOrdererNode"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/HLFOrdererNode"
             }
           },
           "400": {
@@ -1237,106 +1073,86 @@
           "OrdererNode"
         ],
         "operationId": "OrdererNode_Delete",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "ordererNodeName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 4
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "api-version",
             "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 5
+            "x-nullable": true
           },
           {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 7
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 8
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 9
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 10
+            "x-nullable": false
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
+            "schema": {
+              "type": "string"
             }
           },
           "400": {
@@ -1360,87 +1176,73 @@
           "OrdererNode"
         ],
         "operationId": "OrdererNode_List",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 4
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 5
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 7
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 8
+            "x-nullable": false
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HLFOrdererNodeCollection"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/HLFOrdererNodeCollection"
             }
           },
           "400": {
@@ -1461,97 +1263,80 @@
           "PeerNode"
         ],
         "operationId": "PeerNode_Get",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "peerNodeName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 4
+            "x-nullable": true
           },
           {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 5
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 7
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 8
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 9
+            "x-nullable": false
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HLFPeerNode"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/HLFPeerNode"
             }
           },
           "404": {
@@ -1569,104 +1354,79 @@
         "operationId": "PeerNode_Add",
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "peerNodeName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 4
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "api-version",
             "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 5
+            "x-nullable": true
           },
           {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 7
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 8
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 9
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 10
+            "x-nullable": false
           }
         ],
         "responses": {
           "202": {
+            "x-nullable": false,
             "description": "Add Peer Node Request Accepted",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HLFPeerNode"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/HLFPeerNode"
             }
           }
         }
@@ -1678,104 +1438,79 @@
         "operationId": "PeerNode_Remove",
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "peerNodeName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 4
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "api-version",
             "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 5
+            "x-nullable": true
           },
           {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 7
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 8
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 9
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 10
+            "x-nullable": false
           }
         ],
         "responses": {
           "202": {
+            "x-nullable": false,
             "description": "Add Peer Node Request Accepted",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HLFPeerNode"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/HLFPeerNode"
             }
           }
         }
@@ -1787,87 +1522,73 @@
           "PeerNode"
         ],
         "operationId": "PeerNode_List",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 4
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 5
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 7
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 8
+            "x-nullable": false
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HLFPeerNodeCollection"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/HLFPeerNodeCollection"
             }
           },
           "404": {
@@ -1885,87 +1606,73 @@
           "BlockchainMember"
         ],
         "operationId": "BlockchainMember_Get",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 4
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 5
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 7
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 8
+            "x-nullable": false
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BlockchainMember"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/BlockchainMember"
             }
           },
           "400": {
@@ -1981,118 +1688,101 @@
           "BlockchainMember"
         ],
         "operationId": "BlockchainMember_Put",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "name": "blockchainMember",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BlockchainMember"
+            },
+            "x-nullable": false
+          },
+          {
+            "type": "string",
             "name": "api-version",
             "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 5
+            "x-nullable": true
           },
           {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 7
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 8
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 9
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 10
+            "x-nullable": false
           }
         ],
-        "requestBody": {
-          "x-name": "blockchainMember",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BlockchainMember"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 4
-        },
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BlockchainMember"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/BlockchainMember"
             }
           },
           "201": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BlockchainMember"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/BlockchainMember"
             }
           },
           "400": {
@@ -2105,99 +1795,88 @@
           "BlockchainMember"
         ],
         "operationId": "BlockchainMember_Patch",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "name": "blockchainMember",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BlockchainMember"
+            },
+            "x-nullable": false
+          },
+          {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 5
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 7
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 8
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 9
+            "x-nullable": false
           }
         ],
-        "requestBody": {
-          "x-name": "blockchainMember",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BlockchainMember"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 4
-        },
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BlockchainMember"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/BlockchainMember"
             }
           },
           "400": {
@@ -2215,83 +1894,64 @@
         "operationId": "BlockchainMember_Delete",
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "api-version",
             "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 4
+            "x-nullable": true
           },
           {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 5
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 7
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 8
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 9
+            "x-nullable": false
           }
         ],
         "responses": {
@@ -2313,77 +1973,66 @@
           "BlockchainMember"
         ],
         "operationId": "BlockchainMember_List",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 3
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 4
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 5
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 7
+            "x-nullable": false
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BlockchainMemberCollection"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/BlockchainMemberCollection"
             }
           },
           "400": {
@@ -2398,67 +2047,59 @@
           "BlockchainMember"
         ],
         "operationId": "BlockchainMember_ListAll",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 2
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 3
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 4
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 5
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 6
+            "x-nullable": false
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BlockchainMemberCollection"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/BlockchainMemberCollection"
             }
           },
           "400": {
@@ -2473,87 +2114,73 @@
           "BlockchainMember"
         ],
         "operationId": "BlockchainMember_ListConsortiumMembers",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 4
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 5
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 7
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 8
+            "x-nullable": false
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ConsortiumMemberCollection"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/ConsortiumMemberCollection"
             }
           },
           "400": {
@@ -2571,87 +2198,73 @@
           "BlockchainMember"
         ],
         "operationId": "BlockchainMember_ListApiKeys",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 4
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 5
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 7
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 8
+            "x-nullable": false
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiKeyCollection"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/ApiKeyCollection"
             }
           },
           "400": {
@@ -2669,99 +2282,88 @@
           "BlockchainMember"
         ],
         "operationId": "BlockchainMember_RegenerateApiKeys",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "name": "apiKey",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ApiKey"
+            },
+            "x-nullable": false
+          },
+          {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 5
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 7
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 8
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 9
+            "x-nullable": false
           }
         ],
-        "requestBody": {
-          "x-name": "apiKey",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ApiKey"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 4
-        },
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiKeyCollection"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/ApiKeyCollection"
             }
           },
           "400": {
@@ -2779,47 +2381,40 @@
           "BlockchainMemberMetric"
         ],
         "operationId": "BlockchainMemberMetric_StatusStatistics",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StatusStatistics"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/StatusStatistics"
             }
           },
           "400": {
@@ -2837,58 +2432,49 @@
           "BlockchainMemberMetric"
         ],
         "operationId": "BlockchainMemberMetric_Blocks",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "integer",
             "name": "count",
             "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-position": 4
+            "format": "int32",
+            "x-nullable": false
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Block"
-                  }
-                }
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Block"
               }
             }
           },
@@ -2907,58 +2493,49 @@
           "BlockchainMemberMetric"
         ],
         "operationId": "BlockchainMemberMetric_RecentTransactions",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "integer",
             "name": "count",
             "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-position": 4
+            "format": "int32",
+            "x-nullable": false
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Transaction"
-                  }
-                }
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Transaction"
               }
             }
           },
@@ -2979,43 +2556,31 @@
         "operationId": "LocationOperationResult_Get",
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "locationName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "operationId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "api-version",
             "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 4
+            "x-nullable": true
           }
         ],
         "responses": {
@@ -3037,57 +2602,47 @@
           "TransactionNode"
         ],
         "operationId": "TransactionNode_Get",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "transactionNodeName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 4
+            "x-nullable": true
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TransactionNode"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/TransactionNode"
             }
           },
           "400": {
@@ -3103,119 +2658,102 @@
           "TransactionNode"
         ],
         "operationId": "TransactionNode_Put",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "transactionNodeName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 4
+            "x-nullable": true
           },
           {
+            "name": "transactionNode",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TransactionNode"
+            },
+            "x-nullable": false
+          },
+          {
+            "type": "boolean",
             "name": "IsCancellationRequested",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 6
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 7
+            "x-nullable": false
           },
           {
+            "type": "object",
             "name": "WaitHandle.Handle",
             "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/IntPtr"
+            "x-schema": {
+              "$ref": "#/definitions/IntPtr"
             },
-            "x-position": 8
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 9
+            "x-nullable": false
           },
           {
+            "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsClosed",
             "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 10
+            "x-nullable": false
           }
         ],
-        "requestBody": {
-          "x-name": "transactionNode",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TransactionNode"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 5
-        },
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TransactionNode"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/TransactionNode"
             }
           },
           "201": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TransactionNode"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/TransactionNode"
             }
           },
           "400": {
@@ -3228,79 +2766,69 @@
           "TransactionNode"
         ],
         "operationId": "TransactionNode_Patch",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "transactionNodeName",
             "in": "path",
             "required": true,
+            "x-nullable": true
+          },
+          {
+            "name": "transactionNode",
+            "in": "body",
+            "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "$ref": "#/definitions/TransactionNode"
             },
-            "x-position": 4
+            "x-nullable": false
           }
         ],
-        "requestBody": {
-          "x-name": "transactionNode",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TransactionNode"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 5
-        },
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TransactionNode"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/TransactionNode"
             }
           },
           "201": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TransactionNode"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/TransactionNode"
             }
           },
           "400": {
@@ -3315,53 +2843,38 @@
         "operationId": "TransactionNode_Delete",
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "transactionNodeName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 4
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "api-version",
             "in": "query",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 5
+            "x-nullable": true
           }
         ],
         "responses": {
@@ -3383,47 +2896,40 @@
           "TransactionNode"
         ],
         "operationId": "TransactionNode_List",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TransactionNodeCollection"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/TransactionNodeCollection"
             }
           },
           "400": {
@@ -3438,57 +2944,47 @@
           "TransactionNode"
         ],
         "operationId": "TransactionNode_ListApiKeys",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "transactionNodeName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 4
+            "x-nullable": true
           }
         ],
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiKeyCollection"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/ApiKeyCollection"
             }
           },
           "400": {
@@ -3506,69 +3002,62 @@
           "TransactionNode"
         ],
         "operationId": "TransactionNode_RegenerateApiKeys",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
+            "type": "string",
             "name": "subscriptionId",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "resourceGroupName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 2
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 3
+            "x-nullable": true
           },
           {
+            "type": "string",
             "name": "transactionNodeName",
             "in": "path",
             "required": true,
+            "x-nullable": true
+          },
+          {
+            "name": "apiKey",
+            "in": "body",
+            "required": true,
             "schema": {
-              "type": "string",
-              "nullable": true
+              "$ref": "#/definitions/ApiKey"
             },
-            "x-position": 4
+            "x-nullable": false
           }
         ],
-        "requestBody": {
-          "x-name": "apiKey",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ApiKey"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 5
-        },
         "responses": {
           "200": {
+            "x-nullable": false,
             "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiKeyCollection"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/ApiKeyCollection"
             }
           },
           "400": {
@@ -3581,1669 +3070,1404 @@
       }
     }
   },
-  "components": {
-    "schemas": {
-      "OperationResult": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "startTime": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "endTime": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "status": {
-            "type": "string",
-            "nullable": true
-          }
+  "definitions": {
+    "OperationResult": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string"
         }
-      },
-      "BlockchainMember": {
-        "type": "object",
-        "additionalProperties": false,
+      }
+    },
+    "BlockchainMember": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
         "properties": {
-          "location": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "kind": {
-            "type": "string",
-            "nullable": true
-          },
-          "properties": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BlockchainMemberProperties"
-              }
-            ]
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "tags": {
-            "type": "object",
-            "nullable": true,
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          "sku": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Sku"
-              }
-            ]
-          }
-        }
-      },
-      "BlockchainMemberProperties": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BlockchainMemberPropertiesBase"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "provisioningState": {
-                "$ref": "#/components/schemas/BlockchainMemberProvisioningState"
-              },
-              "dns": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "BlockchainMemberProvisioningState": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "NotSpecified",
-          "Updating",
-          "Deleting",
-          "Succeeded",
-          "Failed",
-          "Stale",
-          "Suspending",
-          "Suspended"
-        ],
-        "enum": [
-          "NotSpecified",
-          "Updating",
-          "Deleting",
-          "Succeeded",
-          "Failed",
-          "Stale",
-          "Suspending",
-          "Suspended"
-        ]
-      },
-      "BlockchainMemberPropertiesBase": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "protocol": {
-            "$ref": "#/components/schemas/BlockchainProtocol"
-          }
-        }
-      },
-      "BlockchainProtocol": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "NotSpecified",
-          "Parity",
-          "Quorum",
-          "Corda",
-          "HyperledgerFabric"
-        ],
-        "enum": [
-          "NotSpecified",
-          "Parity",
-          "Quorum",
-          "Corda",
-          "HyperledgerFabric"
-        ]
-      },
-      "QuorumMemberProperties": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BlockchainMemberProperties"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "validatorNodesSku": {
-                "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/BlockchainMemberNodesSku"
-                  }
-                ]
-              },
-              "userName": {
-                "type": "string",
-                "nullable": true
-              },
-              "password": {
-                "type": "string",
-                "nullable": true
-              },
-              "consortium": {
-                "type": "string",
-                "nullable": true
-              },
-              "consortiumRole": {
-                "type": "string",
-                "nullable": true
-              },
-              "consortiumMemberDisplayName": {
-                "type": "string",
-                "nullable": true
-              },
-              "consortiumManagementAccountAddress": {
-                "type": "string",
-                "nullable": true
-              },
-              "consortiumManagementAccountPassword": {
-                "type": "string",
-                "nullable": true
-              },
-              "firewallRules": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/FirewallRule"
-                }
-              },
-              "rootContractAddress": {
-                "type": "string",
-                "nullable": true
-              },
-              "publicKey": {
-                "type": "string",
-                "nullable": true
-              },
-              "nodeProvisioningState": {
-                "$ref": "#/components/schemas/NodeProvisioningState"
-              }
-            }
-          }
-        ]
-      },
-      "BlockchainMemberNodesSku": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "capacity": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "FirewallRule": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "ruleName": {
-            "type": "string",
-            "nullable": true
-          },
-          "startIpAddress": {
-            "type": "string",
-            "nullable": true
-          },
-          "endIpAddress": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "NodeProvisioningState": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "NotSpecified",
-          "Updating",
-          "Deleting",
-          "Succeeded",
-          "Failed"
-        ],
-        "enum": [
-          "NotSpecified",
-          "Updating",
-          "Deleting",
-          "Succeeded",
-          "Failed"
-        ]
-      },
-      "HLFMemberProperties": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BlockchainMemberProperties"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "orderers": {
-                "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/HLFOrderer"
-                  }
-                ]
-              },
-              "peers": {
-                "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/HLFPeer"
-                  }
-                ]
-              },
-              "egressIP": {
-                "type": "string",
-                "nullable": true
-              },
-              "certificateAuthority": {
-                "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/HLFCertificateAuthorityConfiguration"
-                  }
-                ]
-              },
-              "firewallRules": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/FirewallRule"
-                }
-              },
-              "protocolVersion": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "HLFOrderer": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "count": {
-            "type": "integer",
-            "format": "int32",
-            "default": -1
-          },
-          "consortiumName": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "HLFPeer": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "count": {
-            "type": "integer",
-            "format": "int32",
-            "default": -1
-          },
-          "db": {
-            "$ref": "#/components/schemas/HLFDatabaseType"
-          }
-        }
-      },
-      "HLFDatabaseType": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "NotSpecified",
-          "LevelDB",
-          "CouchDB"
-        ],
-        "enum": [
-          "NotSpecified",
-          "LevelDB",
-          "CouchDB"
-        ]
-      },
-      "HLFCertificateAuthorityConfiguration": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "applicationId": {
-            "type": "string",
-            "nullable": true
-          },
-          "metadataEndpoint": {
-            "type": "string",
-            "nullable": true
-          },
-          "allowedAudiences": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "certificates": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/HLFRootCaCertificateConfiguration"
-              }
-            ]
-          },
-          "endpoint": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "HLFRootCaCertificateConfiguration": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "vaultResourceId": {
-            "type": "string",
-            "nullable": true
-          },
-          "enrollmentCertKeyVaultUri": {
-            "type": "string",
-            "nullable": true
-          },
-          "tlsCertKeyVaultUri": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "Sku": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "tier": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "CordaMember": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "location": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "properties": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/CordaMemberProperties"
-              }
-            ]
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "tags": {
-            "type": "object",
-            "nullable": true,
-            "additionalProperties": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "CordaMemberProperties": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "provisioningState": {
-            "readOnly": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BlockchainMemberProvisioningState"
-              }
-            ]
-          },
-          "dns": {
-            "type": "string",
-            "nullable": true
-          },
-          "userName": {
-            "type": "string",
-            "nullable": true
-          },
-          "password": {
-            "type": "string",
-            "nullable": true
-          },
-          "legalName": {
-            "type": "string",
-            "nullable": true
-          },
-          "networkType": {
-            "type": "string",
-            "nullable": true
-          },
-          "networkServiceAddress": {
-            "type": "string",
-            "nullable": true
-          },
-          "certificateProperties": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/CordaMemberCertificateProperties"
-              }
-            ]
-          },
-          "cordappPackageUri": {
-            "type": "string",
-            "format": "uri",
-            "nullable": true
-          },
-          "cordappPackageName": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "CordaMemberCertificateProperties": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "nodeCertificateJKSFileContent": {
-            "type": "string",
-            "nullable": true
-          },
-          "nodeCertificateJKSFilePassword": {
-            "type": "string",
-            "nullable": true
-          },
-          "nodeTLSCertificateJKSFileContent": {
-            "type": "string",
-            "nullable": true
-          },
-          "trustStoreJKSFileContent": {
-            "type": "string",
-            "nullable": true
-          },
-          "trustStoreJKSFilePassword": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "CloudError": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "code": {
-            "type": "string",
-            "nullable": true
-          },
-          "message": {
-            "type": "string",
-            "nullable": true
-          },
-          "target": {
-            "type": "string",
-            "nullable": true
-          },
-          "details": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/CloudError"
-            }
-          },
-          "additionalInfo": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/AdditionalErrorInfo"
-            }
-          }
-        }
-      },
-      "AdditionalErrorInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "info": {
-            "nullable": true
-          }
-        }
-      },
-      "CordaMemberCollection": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "value": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/CordaMember"
-            }
-          },
-          "nextLink": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "ControlledTaskOfActionResultOfCordaMember": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ControlledTask"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "result": {
-                "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/CordaMember"
-                  }
-                ]
-              }
-            }
-          }
-        ]
-      },
-      "ControlledTask": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "isCompleted": {
-            "type": "boolean"
-          },
-          "isCanceled": {
-            "type": "boolean"
-          },
-          "isFaulted": {
-            "type": "boolean"
-          },
-          "exception": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/AggregateException"
-              }
-            ]
-          },
-          "status": {
-            "$ref": "#/components/schemas/TaskStatus"
-          }
-        }
-      },
-      "AggregateException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Exception"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "InnerExceptions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/Exception"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "Exception": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "Message": {
-            "type": "string",
-            "nullable": true
-          },
-          "InnerException": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Exception"
-              }
-            ]
-          },
-          "StackTrace": {
-            "type": "string",
-            "nullable": true
-          },
-          "Source": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "TaskStatus": {
-        "type": "integer",
-        "description": "",
-        "x-enumNames": [
-          "Created",
-          "WaitingForActivation",
-          "WaitingToRun",
-          "Running",
-          "WaitingForChildrenToComplete",
-          "RanToCompletion",
-          "Canceled",
-          "Faulted"
-        ],
-        "enum": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7
-        ]
-      },
-      "ControlledTaskOfActionResultOfBlockchainMember": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ControlledTask"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "result": {
-                "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/BlockchainMember"
-                  }
-                ]
-              }
-            }
-          }
-        ]
-      },
-      "HLFConnectionProfile": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "client": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/ConnectionProfileClient"
-              }
-            ]
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "organizations": {
-            "type": "object",
-            "nullable": true,
-            "additionalProperties": {
-              "$ref": "#/components/schemas/Organization"
-            }
-          },
-          "peers": {
-            "type": "object",
-            "nullable": true,
-            "additionalProperties": {
-              "$ref": "#/components/schemas/NodeProperties"
-            }
-          },
-          "orderers": {
-            "type": "object",
-            "nullable": true,
-            "additionalProperties": {
-              "$ref": "#/components/schemas/NodeProperties"
-            }
-          },
-          "version": {
-            "type": "string",
-            "nullable": true
-          },
-          "wallet": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "ConnectionProfileClient": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "connection": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Connection"
-              }
-            ]
-          },
-          "organization": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "Connection": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "timeout": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/ConnectionTimeout"
-              }
-            ]
-          }
-        }
-      },
-      "ConnectionTimeout": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "orderer": {
-            "type": "string",
-            "nullable": true
-          },
-          "peer": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Peer"
-              }
-            ]
-          }
-        }
-      },
-      "Peer": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "endorser": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "Organization": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "mspid": {
-            "type": "string",
-            "nullable": true
-          },
-          "peers": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "orderers": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "NodeProperties": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "grpcOptions": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/GRPCOptions"
-              }
-            ]
-          },
-          "tlsCACerts": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TLSCACertificates"
-              }
-            ]
-          },
-          "url": {
-            "type": "string",
-            "format": "uri",
-            "nullable": true
-          }
-        }
-      },
-      "GRPCOptions": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "hostnameOverride": {
-            "type": "string",
-            "nullable": true
-          },
-          "ssl-target-name-override": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "TLSCACertificates": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "pem": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "IntPtr": {
-        "type": "object",
-        "additionalProperties": false
-      },
-      "HLFMembershipServiceProvider": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "msp_id": {
-            "type": "string",
-            "nullable": true
-          },
-          "tlscacerts": {
-            "type": "string",
-            "nullable": true
-          },
-          "cacerts": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "NameAvailability": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "nameAvailable": {
-            "type": "boolean"
-          },
-          "message": {
-            "type": "string",
-            "nullable": true
-          },
-          "reason": {
-            "$ref": "#/components/schemas/NameAvailabilityReason"
-          }
-        }
-      },
-      "NameAvailabilityReason": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "NotSpecified",
-          "AlreadyExists",
-          "Invalid",
-          "Reserved"
-        ],
-        "enum": [
-          "NotSpecified",
-          "AlreadyExists",
-          "Invalid",
-          "Reserved"
-        ]
-      },
-      "NameAvailabilityRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "ConsortiumCollection": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "value": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/Consortium"
-            }
-          }
-        }
-      },
-      "Consortium": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "protocol": {
-            "$ref": "#/components/schemas/BlockchainProtocol"
-          }
-        }
-      },
-      "ResourceProviderOperationCollection": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "value": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/ResourceProviderOperation"
-            }
-          }
-        }
-      },
-      "ResourceProviderOperation": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "origin": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "isDataAction": {
-            "type": "boolean"
-          },
-          "display": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/ResourceProviderOperationDisplay"
-              }
-            ]
-          }
-        }
-      },
-      "ResourceProviderOperationDisplay": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "provider": {
-            "type": "string",
-            "nullable": true
-          },
-          "resource": {
-            "type": "string",
-            "nullable": true
-          },
-          "operation": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "ResourceTypeSkuCollection": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "value": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/ResourceTypeSku"
-            }
-          }
-        }
-      },
-      "ResourceTypeSku": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "resourceType": {
-            "type": "string",
-            "nullable": true
-          },
-          "skus": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/SkuSetting"
-            }
-          }
-        }
-      },
-      "SkuSetting": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "tier": {
-            "type": "string",
-            "nullable": true
-          },
-          "locations": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "requiredFeatures": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "Subscription": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "state",
-          "registrationDate",
-          "properties"
-        ],
-        "properties": {
-          "state": {
-            "$ref": "#/components/schemas/SubscriptionState"
-          },
-          "registrationDate": {
+          "$ref": "#/definitions/BlockchainMemberProperties"
+        },
+        "type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
             "type": "string"
-          },
+          }
+        },
+        "sku": {
+          "$ref": "#/definitions/Sku"
+        }
+      }
+    },
+    "BlockchainMemberProperties": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BlockchainMemberPropertiesBase"
+        },
+        {
+          "type": "object",
+          "required": [
+            "provisioningState"
+          ],
           "properties": {
-            "$ref": "#/components/schemas/SubscriptionRequestProperties"
-          }
-        }
-      },
-      "SubscriptionState": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Registered",
-          "Unregistered",
-          "Warned",
-          "Suspended",
-          "Deleted"
-        ],
-        "enum": [
-          "Registered",
-          "Unregistered",
-          "Warned",
-          "Suspended",
-          "Deleted"
-        ]
-      },
-      "SubscriptionRequestProperties": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "tenantId": {
-            "type": "string",
-            "nullable": true
-          },
-          "locationPlacementId": {
-            "type": "string",
-            "nullable": true
-          },
-          "quotaId": {
-            "type": "string",
-            "nullable": true
-          },
-          "registeredFeatures": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/RegisteredFeatures"
+            "provisioningState": {
+              "$ref": "#/definitions/BlockchainMemberProvisioningState"
+            },
+            "dns": {
+              "type": "string"
             }
           }
         }
-      },
-      "RegisteredFeatures": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "state": {
-            "type": "string",
-            "nullable": true
-          }
+      ]
+    },
+    "BlockchainMemberProvisioningState": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "NotSpecified",
+        "Updating",
+        "Deleting",
+        "Succeeded",
+        "Failed",
+        "Stale",
+        "Suspending",
+        "Suspended"
+      ],
+      "enum": [
+        "NotSpecified",
+        "Updating",
+        "Deleting",
+        "Succeeded",
+        "Failed",
+        "Stale",
+        "Suspending",
+        "Suspended"
+      ]
+    },
+    "BlockchainMemberPropertiesBase": {
+      "type": "object",
+      "required": [
+        "protocol"
+      ],
+      "properties": {
+        "protocol": {
+          "$ref": "#/definitions/BlockchainProtocol"
         }
-      },
-      "HLFOrdererNode": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/HLFNodeBase"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "id": {
-                "type": "string",
-                "nullable": true
-              },
-              "type": {
-                "type": "string",
-                "nullable": true
-              },
-              "properties": {
-                "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/HLFOrdererNodeProperties"
-                  }
-                ]
-              }
-            }
-          }
-        ]
-      },
-      "HLFOrdererNodeProperties": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/HLFNodePropertiesBase"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "consortiumName": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "HLFNodePropertiesBase": {
-        "type": "object",
-        "x-abstract": true,
-        "additionalProperties": false,
-        "properties": {
-          "provisioningState": {
-            "$ref": "#/components/schemas/HLFNodeProvisioningState"
-          },
-          "dns": {
-            "type": "string",
-            "nullable": true
-          },
-          "mspId": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "HLFNodeProvisioningState": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "NotSpecified",
-          "Updating",
-          "Deleting",
-          "Succeeded",
-          "Failed",
-          "Deleted"
-        ],
-        "enum": [
-          "NotSpecified",
-          "Updating",
-          "Deleting",
-          "Succeeded",
-          "Failed",
-          "Deleted"
-        ]
-      },
-      "HLFNodeBase": {
-        "type": "object",
-        "x-abstract": true,
-        "additionalProperties": false,
-        "properties": {
-          "location": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "HLFOrdererNodeCollection": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "value": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/HLFOrdererNode"
-            }
-          }
-        }
-      },
-      "HLFPeerNode": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/HLFNodeBase"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "id": {
-                "type": "string",
-                "nullable": true
-              },
-              "type": {
-                "type": "string",
-                "nullable": true
-              },
-              "properties": {
-                "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/HLFPeerNodeProperties"
-                  }
-                ]
-              }
-            }
-          }
-        ]
-      },
-      "HLFPeerNodeProperties": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/HLFNodePropertiesBase"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "db": {
-                "$ref": "#/components/schemas/HLFDatabaseType"
-              }
-            }
-          }
-        ]
-      },
-      "HLFPeerNodeCollection": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "value": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/HLFPeerNode"
-            }
-          }
-        }
-      },
-      "BlockchainMemberCollection": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "value": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/BlockchainMember"
-            }
-          }
-        }
-      },
-      "ConsortiumMemberCollection": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "value": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/ConsortiumMember"
-            }
-          }
-        }
-      },
-      "ConsortiumMember": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "displayName": {
-            "type": "string",
-            "nullable": true
-          },
-          "subscriptionId": {
-            "type": "string",
-            "nullable": true
-          },
-          "role": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "string",
-            "nullable": true
-          },
-          "joinDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "dateModified": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "ApiKeyCollection": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "keys": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/ApiKey"
-            }
-          }
-        }
-      },
-      "ApiKey": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "keyName": {
-            "type": "string",
-            "nullable": true
-          },
-          "value": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "StatusStatistics": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "tps": {
-            "type": "number",
-            "format": "double"
-          },
-          "rangedTxns": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "blockHeight": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "Block": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "hash": {
-            "type": "string",
-            "nullable": true
-          },
-          "parent": {
-            "type": "string",
-            "nullable": true
-          },
-          "miner": {
-            "type": "string",
-            "nullable": true
-          },
-          "number": {
-            "$ref": "#/components/schemas/BigInteger"
-          },
-          "size": {
-            "$ref": "#/components/schemas/BigInteger"
-          },
-          "timestamp": {
-            "$ref": "#/components/schemas/BigInteger"
-          },
-          "transactions": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/Transaction"
-            }
-          }
-        }
-      },
-      "BigInteger": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "_sign": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "_bits": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "integer"
-            }
-          },
-          "IsPowerOfTwo": {
-            "type": "boolean"
-          },
-          "IsZero": {
-            "type": "boolean"
-          },
-          "IsOne": {
-            "type": "boolean"
-          },
-          "IsEven": {
-            "type": "boolean"
-          },
-          "Sign": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "_Sign": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "_Bits": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "integer"
-            }
-          }
-        }
-      },
-      "Transaction": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "from": {
-            "type": "string",
-            "nullable": true
-          },
-          "to": {
-            "type": "string",
-            "nullable": true
-          },
-          "hash": {
-            "type": "string",
-            "nullable": true
-          },
-          "value": {
-            "$ref": "#/components/schemas/BigInteger"
-          },
-          "timestamp": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "TransactionNode": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "location": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
+      }
+    },
+    "BlockchainProtocol": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "NotSpecified",
+        "Parity",
+        "Quorum",
+        "Corda",
+        "HyperledgerFabric"
+      ],
+      "enum": [
+        "NotSpecified",
+        "Parity",
+        "Quorum",
+        "Corda",
+        "HyperledgerFabric"
+      ]
+    },
+    "QuorumMemberProperties": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BlockchainMemberProperties"
+        },
+        {
+          "type": "object",
+          "required": [
+            "nodeProvisioningState"
+          ],
           "properties": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TransactionNodeProperties"
+            "validatorNodesSku": {
+              "$ref": "#/definitions/BlockchainMemberNodesSku"
+            },
+            "userName": {
+              "type": "string"
+            },
+            "password": {
+              "type": "string"
+            },
+            "consortium": {
+              "type": "string"
+            },
+            "consortiumRole": {
+              "type": "string"
+            },
+            "consortiumMemberDisplayName": {
+              "type": "string"
+            },
+            "consortiumManagementAccountAddress": {
+              "type": "string"
+            },
+            "consortiumManagementAccountPassword": {
+              "type": "string"
+            },
+            "firewallRules": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FirewallRule"
               }
-            ]
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "id": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "TransactionNodeProperties": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "provisioningState": {
-            "$ref": "#/components/schemas/NodeProvisioningState"
-          },
-          "dns": {
-            "type": "string",
-            "nullable": true
-          },
-          "publicKey": {
-            "type": "string",
-            "nullable": true
-          },
-          "userName": {
-            "type": "string",
-            "nullable": true
-          },
-          "password": {
-            "type": "string",
-            "nullable": true
-          },
-          "firewallRules": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/FirewallRule"
+            },
+            "rootContractAddress": {
+              "type": "string"
+            },
+            "publicKey": {
+              "type": "string"
+            },
+            "nodeProvisioningState": {
+              "$ref": "#/definitions/NodeProvisioningState"
             }
           }
         }
-      },
-      "TransactionNodeCollection": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "value": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/TransactionNode"
+      ]
+    },
+    "BlockchainMemberNodesSku": {
+      "type": "object",
+      "required": [
+        "capacity"
+      ],
+      "properties": {
+        "capacity": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "FirewallRule": {
+      "type": "object",
+      "properties": {
+        "ruleName": {
+          "type": "string"
+        },
+        "startIpAddress": {
+          "type": "string"
+        },
+        "endIpAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "NodeProvisioningState": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "NotSpecified",
+        "Updating",
+        "Deleting",
+        "Succeeded",
+        "Failed"
+      ],
+      "enum": [
+        "NotSpecified",
+        "Updating",
+        "Deleting",
+        "Succeeded",
+        "Failed"
+      ]
+    },
+    "HLFMemberProperties": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BlockchainMemberProperties"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "orderers": {
+              "$ref": "#/definitions/HLFOrderer"
+            },
+            "peers": {
+              "$ref": "#/definitions/HLFPeer"
+            },
+            "egressIP": {
+              "type": "string"
+            },
+            "certificateAuthority": {
+              "$ref": "#/definitions/HLFCertificateAuthorityConfiguration"
+            },
+            "firewallRules": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FirewallRule"
+              }
+            },
+            "protocolVersion": {
+              "type": "string"
             }
+          }
+        }
+      ]
+    },
+    "HLFOrderer": {
+      "type": "object",
+      "required": [
+        "count"
+      ],
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32",
+          "default": -1
+        },
+        "consortiumName": {
+          "type": "string"
+        }
+      }
+    },
+    "HLFPeer": {
+      "type": "object",
+      "required": [
+        "count",
+        "db"
+      ],
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32",
+          "default": -1
+        },
+        "db": {
+          "$ref": "#/definitions/HLFDatabaseType"
+        }
+      }
+    },
+    "HLFDatabaseType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "NotSpecified",
+        "LevelDB",
+        "CouchDB"
+      ],
+      "enum": [
+        "NotSpecified",
+        "LevelDB",
+        "CouchDB"
+      ]
+    },
+    "HLFCertificateAuthorityConfiguration": {
+      "type": "object",
+      "properties": {
+        "applicationId": {
+          "type": "string"
+        },
+        "metadataEndpoint": {
+          "type": "string"
+        },
+        "allowedAudiences": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "certificates": {
+          "$ref": "#/definitions/HLFRootCaCertificateConfiguration"
+        },
+        "endpoint": {
+          "type": "string"
+        }
+      }
+    },
+    "HLFRootCaCertificateConfiguration": {
+      "type": "object",
+      "properties": {
+        "vaultResourceId": {
+          "type": "string"
+        },
+        "enrollmentCertKeyVaultUri": {
+          "type": "string"
+        },
+        "tlsCertKeyVaultUri": {
+          "type": "string"
+        }
+      }
+    },
+    "Sku": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "tier": {
+          "type": "string"
+        }
+      }
+    },
+    "CordaMember": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/CordaMemberProperties"
+        },
+        "type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "CordaMemberProperties": {
+      "type": "object",
+      "required": [
+        "provisioningState"
+      ],
+      "properties": {
+        "provisioningState": {
+          "readOnly": true,
+          "allOf": [
+            {
+              "$ref": "#/definitions/BlockchainMemberProvisioningState"
+            }
+          ]
+        },
+        "dns": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "legalName": {
+          "type": "string"
+        },
+        "networkType": {
+          "type": "string"
+        },
+        "networkServiceAddress": {
+          "type": "string"
+        },
+        "certificateProperties": {
+          "$ref": "#/definitions/CordaMemberCertificateProperties"
+        },
+        "cordappPackageUri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "cordappPackageName": {
+          "type": "string"
+        }
+      }
+    },
+    "CordaMemberCertificateProperties": {
+      "type": "object",
+      "properties": {
+        "nodeCertificateJKSFileContent": {
+          "type": "string"
+        },
+        "nodeCertificateJKSFilePassword": {
+          "type": "string"
+        },
+        "nodeTLSCertificateJKSFileContent": {
+          "type": "string"
+        },
+        "trustStoreJKSFileContent": {
+          "type": "string"
+        },
+        "trustStoreJKSFilePassword": {
+          "type": "string"
+        }
+      }
+    },
+    "CloudError": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CloudError"
+          }
+        },
+        "additionalInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AdditionalErrorInfo"
+          }
+        }
+      }
+    },
+    "AdditionalErrorInfo": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "info": {}
+      }
+    },
+    "CordaMemberCollection": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CordaMember"
+          }
+        },
+        "nextLink": {
+          "type": "string"
+        }
+      }
+    },
+    "ControlledTaskOfActionResultOfCordaMember": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ControlledTask"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "$ref": "#/definitions/CordaMember"
+            }
+          }
+        }
+      ]
+    },
+    "ControlledTask": {
+      "type": "object",
+      "required": [
+        "id",
+        "isCompleted",
+        "isCanceled",
+        "isFaulted",
+        "status"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "isCompleted": {
+          "type": "boolean"
+        },
+        "isCanceled": {
+          "type": "boolean"
+        },
+        "isFaulted": {
+          "type": "boolean"
+        },
+        "exception": {
+          "$ref": "#/definitions/AggregateException"
+        },
+        "status": {
+          "$ref": "#/definitions/TaskStatus"
+        }
+      }
+    },
+    "AggregateException": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Exception"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "InnerExceptions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Exception"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "Exception": {
+      "type": "object",
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "InnerException": {
+          "$ref": "#/definitions/Exception"
+        },
+        "StackTrace": {
+          "type": "string"
+        },
+        "Source": {
+          "type": "string"
+        }
+      }
+    },
+    "TaskStatus": {
+      "type": "integer",
+      "description": "",
+      "x-enumNames": [
+        "Created",
+        "WaitingForActivation",
+        "WaitingToRun",
+        "Running",
+        "WaitingForChildrenToComplete",
+        "RanToCompletion",
+        "Canceled",
+        "Faulted"
+      ],
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "ControlledTaskOfActionResultOfBlockchainMember": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ControlledTask"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "$ref": "#/definitions/BlockchainMember"
+            }
+          }
+        }
+      ]
+    },
+    "HLFConnectionProfile": {
+      "type": "object",
+      "properties": {
+        "client": {
+          "$ref": "#/definitions/ConnectionProfileClient"
+        },
+        "name": {
+          "type": "string"
+        },
+        "organizations": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Organization"
+          }
+        },
+        "peers": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/NodeProperties"
+          }
+        },
+        "orderers": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/NodeProperties"
+          }
+        },
+        "version": {
+          "type": "string"
+        },
+        "wallet": {
+          "type": "string"
+        }
+      }
+    },
+    "ConnectionProfileClient": {
+      "type": "object",
+      "properties": {
+        "connection": {
+          "$ref": "#/definitions/Connection"
+        },
+        "organization": {
+          "type": "string"
+        }
+      }
+    },
+    "Connection": {
+      "type": "object",
+      "properties": {
+        "timeout": {
+          "$ref": "#/definitions/ConnectionTimeout"
+        }
+      }
+    },
+    "ConnectionTimeout": {
+      "type": "object",
+      "properties": {
+        "orderer": {
+          "type": "string"
+        },
+        "peer": {
+          "$ref": "#/definitions/Peer"
+        }
+      }
+    },
+    "Peer": {
+      "type": "object",
+      "properties": {
+        "endorser": {
+          "type": "string"
+        }
+      }
+    },
+    "Organization": {
+      "type": "object",
+      "properties": {
+        "mspid": {
+          "type": "string"
+        },
+        "peers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "orderers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "NodeProperties": {
+      "type": "object",
+      "properties": {
+        "grpcOptions": {
+          "$ref": "#/definitions/GRPCOptions"
+        },
+        "tlsCACerts": {
+          "$ref": "#/definitions/TLSCACertificates"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "GRPCOptions": {
+      "type": "object",
+      "properties": {
+        "hostnameOverride": {
+          "type": "string"
+        },
+        "ssl-target-name-override": {
+          "type": "string"
+        }
+      }
+    },
+    "TLSCACertificates": {
+      "type": "object",
+      "properties": {
+        "pem": {
+          "type": "string"
+        }
+      }
+    },
+    "IntPtr": {
+      "type": "object"
+    },
+    "HLFMembershipServiceProvider": {
+      "type": "object",
+      "properties": {
+        "msp_id": {
+          "type": "string"
+        },
+        "tlscacerts": {
+          "type": "string"
+        },
+        "cacerts": {
+          "type": "string"
+        }
+      }
+    },
+    "NameAvailability": {
+      "type": "object",
+      "required": [
+        "nameAvailable",
+        "reason"
+      ],
+      "properties": {
+        "nameAvailable": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        },
+        "reason": {
+          "$ref": "#/definitions/NameAvailabilityReason"
+        }
+      }
+    },
+    "NameAvailabilityReason": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "NotSpecified",
+        "AlreadyExists",
+        "Invalid",
+        "Reserved"
+      ],
+      "enum": [
+        "NotSpecified",
+        "AlreadyExists",
+        "Invalid",
+        "Reserved"
+      ]
+    },
+    "NameAvailabilityRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "ConsortiumCollection": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Consortium"
+          }
+        }
+      }
+    },
+    "Consortium": {
+      "type": "object",
+      "required": [
+        "protocol"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "protocol": {
+          "$ref": "#/definitions/BlockchainProtocol"
+        }
+      }
+    },
+    "ResourceProviderOperationCollection": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResourceProviderOperation"
+          }
+        }
+      }
+    },
+    "ResourceProviderOperation": {
+      "type": "object",
+      "required": [
+        "isDataAction"
+      ],
+      "properties": {
+        "origin": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "isDataAction": {
+          "type": "boolean"
+        },
+        "display": {
+          "$ref": "#/definitions/ResourceProviderOperationDisplay"
+        }
+      }
+    },
+    "ResourceProviderOperationDisplay": {
+      "type": "object",
+      "properties": {
+        "provider": {
+          "type": "string"
+        },
+        "resource": {
+          "type": "string"
+        },
+        "operation": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "ResourceTypeSkuCollection": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResourceTypeSku"
+          }
+        }
+      }
+    },
+    "ResourceTypeSku": {
+      "type": "object",
+      "properties": {
+        "resourceType": {
+          "type": "string"
+        },
+        "skus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SkuSetting"
+          }
+        }
+      }
+    },
+    "SkuSetting": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "tier": {
+          "type": "string"
+        },
+        "locations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "requiredFeatures": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Subscription": {
+      "type": "object",
+      "required": [
+        "state",
+        "registrationDate",
+        "properties"
+      ],
+      "properties": {
+        "state": {
+          "$ref": "#/definitions/SubscriptionState"
+        },
+        "registrationDate": {
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/SubscriptionRequestProperties"
+        }
+      }
+    },
+    "SubscriptionState": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Registered",
+        "Unregistered",
+        "Warned",
+        "Suspended",
+        "Deleted"
+      ],
+      "enum": [
+        "Registered",
+        "Unregistered",
+        "Warned",
+        "Suspended",
+        "Deleted"
+      ]
+    },
+    "SubscriptionRequestProperties": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "locationPlacementId": {
+          "type": "string"
+        },
+        "quotaId": {
+          "type": "string"
+        },
+        "registeredFeatures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RegisteredFeatures"
+          }
+        }
+      }
+    },
+    "RegisteredFeatures": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        }
+      }
+    },
+    "HLFOrdererNode": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/HLFNodeBase"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "properties": {
+              "$ref": "#/definitions/HLFOrdererNodeProperties"
+            }
+          }
+        }
+      ]
+    },
+    "HLFOrdererNodeProperties": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/HLFNodePropertiesBase"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "consortiumName": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "HLFNodePropertiesBase": {
+      "type": "object",
+      "x-abstract": true,
+      "required": [
+        "provisioningState"
+      ],
+      "properties": {
+        "provisioningState": {
+          "$ref": "#/definitions/HLFNodeProvisioningState"
+        },
+        "dns": {
+          "type": "string"
+        },
+        "mspId": {
+          "type": "string"
+        }
+      }
+    },
+    "HLFNodeProvisioningState": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "NotSpecified",
+        "Updating",
+        "Deleting",
+        "Succeeded",
+        "Failed",
+        "Deleted"
+      ],
+      "enum": [
+        "NotSpecified",
+        "Updating",
+        "Deleting",
+        "Succeeded",
+        "Failed",
+        "Deleted"
+      ]
+    },
+    "HLFNodeBase": {
+      "type": "object",
+      "x-abstract": true,
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "HLFOrdererNodeCollection": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/HLFOrdererNode"
+          }
+        }
+      }
+    },
+    "HLFPeerNode": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/HLFNodeBase"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "properties": {
+              "$ref": "#/definitions/HLFPeerNodeProperties"
+            }
+          }
+        }
+      ]
+    },
+    "HLFPeerNodeProperties": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/HLFNodePropertiesBase"
+        },
+        {
+          "type": "object",
+          "required": [
+            "db"
+          ],
+          "properties": {
+            "db": {
+              "$ref": "#/definitions/HLFDatabaseType"
+            }
+          }
+        }
+      ]
+    },
+    "HLFPeerNodeCollection": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/HLFPeerNode"
+          }
+        }
+      }
+    },
+    "BlockchainMemberCollection": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BlockchainMember"
+          }
+        }
+      }
+    },
+    "ConsortiumMemberCollection": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ConsortiumMember"
+          }
+        }
+      }
+    },
+    "ConsortiumMember": {
+      "type": "object",
+      "required": [
+        "dateModified"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "joinDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dateModified": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "ApiKeyCollection": {
+      "type": "object",
+      "properties": {
+        "keys": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ApiKey"
+          }
+        }
+      }
+    },
+    "ApiKey": {
+      "type": "object",
+      "properties": {
+        "keyName": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "StatusStatistics": {
+      "type": "object",
+      "required": [
+        "tps",
+        "rangedTxns",
+        "blockHeight"
+      ],
+      "properties": {
+        "tps": {
+          "type": "number",
+          "format": "double"
+        },
+        "rangedTxns": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "blockHeight": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "Block": {
+      "type": "object",
+      "required": [
+        "number",
+        "size",
+        "timestamp"
+      ],
+      "properties": {
+        "hash": {
+          "type": "string"
+        },
+        "parent": {
+          "type": "string"
+        },
+        "miner": {
+          "type": "string"
+        },
+        "number": {
+          "$ref": "#/definitions/BigInteger"
+        },
+        "size": {
+          "$ref": "#/definitions/BigInteger"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/BigInteger"
+        },
+        "transactions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Transaction"
+          }
+        }
+      }
+    },
+    "BigInteger": {
+      "type": "object",
+      "required": [
+        "_sign",
+        "IsPowerOfTwo",
+        "IsZero",
+        "IsOne",
+        "IsEven",
+        "Sign",
+        "_Sign"
+      ],
+      "properties": {
+        "_sign": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "_bits": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "IsPowerOfTwo": {
+          "type": "boolean"
+        },
+        "IsZero": {
+          "type": "boolean"
+        },
+        "IsOne": {
+          "type": "boolean"
+        },
+        "IsEven": {
+          "type": "boolean"
+        },
+        "Sign": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "_Sign": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "_Bits": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "Transaction": {
+      "type": "object",
+      "required": [
+        "value",
+        "timestamp"
+      ],
+      "properties": {
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "hash": {
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/definitions/BigInteger"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "TransactionNode": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/TransactionNodeProperties"
+        },
+        "type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "TransactionNodeProperties": {
+      "type": "object",
+      "required": [
+        "provisioningState"
+      ],
+      "properties": {
+        "provisioningState": {
+          "$ref": "#/definitions/NodeProvisioningState"
+        },
+        "dns": {
+          "type": "string"
+        },
+        "publicKey": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "firewallRules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FirewallRule"
+          }
+        }
+      }
+    },
+    "TransactionNodeCollection": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TransactionNode"
           }
         }
       }
