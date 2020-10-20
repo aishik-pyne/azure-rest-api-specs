@@ -466,15 +466,6 @@
             "x-nullable": false
           },
           {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
             "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
@@ -550,15 +541,6 @@
             "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
             "x-nullable": false
           },
           {
@@ -641,15 +623,6 @@
             "x-nullable": false
           },
           {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
             "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
@@ -712,15 +685,6 @@
             "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
             "x-nullable": false
           },
           {
@@ -846,15 +810,6 @@
             "x-nullable": false
           },
           {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
             "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
@@ -924,15 +879,6 @@
             "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
             "x-nullable": false
           },
           {
@@ -1022,15 +968,6 @@
             "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
             "x-nullable": false
           },
           {
@@ -1126,15 +1063,6 @@
             "x-nullable": false
           },
           {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
             "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
@@ -1213,15 +1141,6 @@
             "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
             "x-nullable": false
           },
           {
@@ -1310,15 +1229,6 @@
             "x-nullable": false
           },
           {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
             "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
@@ -1400,15 +1310,6 @@
             "x-nullable": false
           },
           {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
             "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
@@ -1484,15 +1385,6 @@
             "x-nullable": false
           },
           {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
             "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
@@ -1559,15 +1451,6 @@
             "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
             "x-nullable": false
           },
           {
@@ -1643,15 +1526,6 @@
             "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
             "x-nullable": false
           },
           {
@@ -1749,15 +1623,6 @@
             "x-nullable": false
           },
           {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
             "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
@@ -1850,15 +1715,6 @@
             "x-nullable": false
           },
           {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
             "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
@@ -1933,15 +1789,6 @@
             "x-nullable": false
           },
           {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
             "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
@@ -2006,15 +1853,6 @@
             "x-nullable": false
           },
           {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
             "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
@@ -2070,15 +1908,6 @@
             "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
             "x-nullable": false
           },
           {
@@ -2154,15 +1983,6 @@
             "x-nullable": false
           },
           {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
             "type": "boolean",
             "name": "WaitHandle.SafeWaitHandle.IsInvalid",
             "in": "query",
@@ -2235,15 +2055,6 @@
             "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
             "x-nullable": false
           },
           {
@@ -2334,15 +2145,6 @@
             "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
             "x-nullable": false
           },
           {
@@ -2717,15 +2519,6 @@
             "type": "boolean",
             "name": "CanBeCanceled",
             "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
             "x-nullable": false
           },
           {
@@ -3807,9 +3600,6 @@
           "type": "string"
         }
       }
-    },
-    "IntPtr": {
-      "type": "object"
     },
     "HLFMembershipServiceProvider": {
       "type": "object",
