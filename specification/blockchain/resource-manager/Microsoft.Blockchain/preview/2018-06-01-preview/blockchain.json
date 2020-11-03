@@ -1,1685 +1,63 @@
 {
   "swagger": "2.0",
   "info": {
+    "version": "2018-06-01-preview",
     "title": "BlockchainManagementClient",
-    "description": "REST API for Azure Blockchain Service",
-    "version": "2018-06-01-preview"
+    "description": "REST API for Azure Blockchain Service"
   },
-  "host": "managemen.azure.com",
+  "host": "management.azure.com",
   "schemes": [
-    "http"
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
   ],
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}/operations/{operationId}": {
-      "get": {
-        "tags": [
-          "BlockchainMemberOperationResult"
-        ],
-        "operationId": "BlockchainMemberOperationResult_GetOperationResult",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "blockchainMemberName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "operationId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "boolean",
-            "name": "monitor",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "string",
-            "name": "api-version",
-            "in": "query",
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "Get OperationResult for BlockchainMember\nor\nGet OperationResult for BlockchainMember",
-            "schema": {},
-            "x-expectedSchemas": [
-              {
-                "description": "Get OperationResult for BlockchainMember",
-                "schema": {
-                  "$ref": "#/definitions/OperationResult"
-                }
-              },
-              {
-                "description": "Get OperationResult for BlockchainMember",
-                "schema": {
-                  "$ref": "#/definitions/BlockchainMember"
-                }
-              }
-            ]
-          },
-          "202": {
-            "description": "Operation is accepted"
-          },
-          "404": {
-            "description": "Operation is not found"
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/cordaMembers/{cordaMemberName}": {
-      "get": {
-        "tags": [
-          "CordaMember"
-        ],
-        "operationId": "CordaMember_Get",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "cordaMemberName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CordaMember"
-            }
-          },
-          "404": {
-            "description": ""
-          },
-          "default": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CloudError"
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "CordaMember"
-        ],
-        "operationId": "CordaMember_Put",
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "cordaMemberName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "name": "cordaMember",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/CordaMember"
-            },
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ControlledTaskOfActionResultOfCordaMember"
-            }
-          },
-          "201": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ControlledTaskOfActionResultOfCordaMember"
-            }
-          },
-          "default": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CloudError"
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "CordaMember"
-        ],
-        "operationId": "CordaMember_Delete",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "cordaMemberName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "api-version",
-            "in": "query",
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "202": {
-            "description": ""
-          },
-          "204": {
-            "description": ""
-          },
-          "default": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CloudError"
-            }
-          }
-        }
-      },
-      "patch": {
-        "tags": [
-          "CordaMember"
-        ],
-        "operationId": "CordaMember_Patch",
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "cordaMemberName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "name": "cordaMember",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/CordaMember"
-            },
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ControlledTaskOfActionResultOfBlockchainMember"
-            }
-          },
-          "204": {
-            "description": ""
-          },
-          "default": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CloudError"
-            }
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/cordaMembers": {
-      "get": {
-        "tags": [
-          "CordaMember"
-        ],
-        "operationId": "CordaMember_List",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CordaMemberCollection"
-            }
-          },
-          "default": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CloudError"
-            }
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.Blockchain/cordaMembers": {
-      "get": {
-        "tags": [
-          "CordaMember"
-        ],
-        "operationId": "CordaMember_ListAll",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CordaMemberCollection"
-            }
-          },
-          "default": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CloudError"
-            }
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}/fabricIdentity/listConnectionProfiles": {
-      "post": {
-        "tags": [
-          "HLFIdentity"
-        ],
-        "operationId": "HLFIdentity_ListServiceConnectionProfile",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "blockchainMemberName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/HLFConnectionProfile"
-            }
-          },
-          "400": {
-            "description": ""
-          },
-          "404": {
-            "description": ""
-          },
-          "500": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}/fabricIdentity/listMemberMSP": {
-      "post": {
-        "tags": [
-          "HLFIdentity"
-        ],
-        "operationId": "HLFIdentity_ListMemberMSP",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "blockchainMemberName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/HLFMembershipServiceProvider"
-            }
-          },
-          "400": {
-            "description": ""
-          },
-          "404": {
-            "description": ""
-          },
-          "500": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.Blockchain/locations/{locationName}/checkNameAvailability": {
-      "post": {
-        "tags": [
-          "Location"
-        ],
-        "operationId": "Location_CheckNameAvailability",
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "name": "nameAvailabilityRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/NameAvailabilityRequest"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "string",
-            "name": "locationName",
-            "in": "path",
-            "required": true,
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/NameAvailability"
-            }
-          },
-          "400": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.Blockchain/locations/{locationName}/listConsortiums": {
-      "post": {
-        "tags": [
-          "Location"
-        ],
-        "operationId": "Location_ListAvailableConsortiums",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "string",
-            "name": "locationName",
-            "in": "path",
-            "required": true,
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ConsortiumCollection"
-            }
-          },
-          "400": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/providers/Microsoft.Blockchain/operations": {
-      "get": {
-        "tags": [
-          "Operation"
-        ],
-        "operationId": "Operation_List",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ResourceProviderOperationCollection"
-            }
-          },
-          "400": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/skus": {
-      "get": {
-        "tags": [
-          "Sku"
-        ],
-        "operationId": "Sku_List",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ResourceTypeSkuCollection"
-            }
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}": {
-      "put": {
-        "tags": [
-          "Subscription"
-        ],
-        "operationId": "Subscription_Put",
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "name": "subscriptionRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Subscription"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}/ordererNodes/{ordererNodeName}": {
-      "get": {
-        "tags": [
-          "OrdererNode"
-        ],
-        "operationId": "OrdererNode_Get",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "blockchainMemberName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "ordererNodeName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/HLFOrdererNode"
-            }
-          },
-          "400": {
-            "description": ""
-          },
-          "404": {
-            "description": ""
-          },
-          "500": {
-            "description": ""
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "OrdererNode"
-        ],
-        "operationId": "OrdererNode_Create",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "blockchainMemberName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "ordererNodeName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "api-version",
-            "in": "query",
-            "x-nullable": true
-          },
-          {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/HLFOrdererNode"
-            }
-          },
-          "400": {
-            "description": ""
-          },
-          "404": {
-            "description": ""
-          },
-          "409": {
-            "description": ""
-          },
-          "500": {
-            "description": ""
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "OrdererNode"
-        ],
-        "operationId": "OrdererNode_Delete",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "blockchainMemberName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "ordererNodeName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "api-version",
-            "in": "query",
-            "x-nullable": true
-          },
-          {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          "400": {
-            "description": ""
-          },
-          "404": {
-            "description": ""
-          },
-          "409": {
-            "description": ""
-          },
-          "500": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}/ordererNodes": {
-      "get": {
-        "tags": [
-          "OrdererNode"
-        ],
-        "operationId": "OrdererNode_List",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "blockchainMemberName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/HLFOrdererNodeCollection"
-            }
-          },
-          "400": {
-            "description": ""
-          },
-          "404": {
-            "description": ""
-          },
-          "500": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}/peerNodes/{peerNodeName}": {
-      "get": {
-        "tags": [
-          "PeerNode"
-        ],
-        "operationId": "PeerNode_Get",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "blockchainMemberName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "peerNodeName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/HLFPeerNode"
-            }
-          },
-          "404": {
-            "description": ""
-          },
-          "500": {
-            "description": ""
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "PeerNode"
-        ],
-        "operationId": "PeerNode_Add",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "blockchainMemberName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "peerNodeName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "api-version",
-            "in": "query",
-            "x-nullable": true
-          },
-          {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "202": {
-            "x-nullable": false,
-            "description": "Add Peer Node Request Accepted",
-            "schema": {
-              "$ref": "#/definitions/HLFPeerNode"
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "PeerNode"
-        ],
-        "operationId": "PeerNode_Remove",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "blockchainMemberName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "peerNodeName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "api-version",
-            "in": "query",
-            "x-nullable": true
-          },
-          {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "202": {
-            "x-nullable": false,
-            "description": "Add Peer Node Request Accepted",
-            "schema": {
-              "$ref": "#/definitions/HLFPeerNode"
-            }
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}/peerNodes": {
-      "get": {
-        "tags": [
-          "PeerNode"
-        ],
-        "operationId": "PeerNode_List",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "blockchainMemberName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/HLFPeerNodeCollection"
-            }
-          },
-          "404": {
-            "description": ""
-          },
-          "500": {
-            "description": ""
-          }
-        }
-      }
-    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}": {
       "get": {
         "tags": [
           "BlockchainMember"
         ],
-        "operationId": "BlockchainMember_Get",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
+        "description": "Get blockchain member",
+        "operationId": "BlockchainMembers_Get",
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
+            "description": "Blockchain member name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
           },
           {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/ResourceGroupParameter"
           }
         ],
         "responses": {
           "200": {
-            "x-nullable": false,
-            "description": "",
+            "description": "Success",
             "schema": {
               "$ref": "#/definitions/BlockchainMember"
             }
           },
           "400": {
-            "description": ""
+            "description": "Bad Request"
           },
           "404": {
-            "description": ""
+            "description": "Not Found"
+          }
+        },
+        "x-ms-examples": {
+          "BlockchainMembers_Get": {
+            "$ref": "./examples/BlockchainMembers_Get.json"
           }
         }
       },
@@ -1687,203 +65,56 @@
         "tags": [
           "BlockchainMember"
         ],
-        "operationId": "BlockchainMember_Put",
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
+        "description": "Create blockchain member",
+        "operationId": "BlockchainMembers_Put",
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
+            "description": "Blockchain member name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
           },
           {
             "name": "blockchainMember",
             "in": "body",
-            "required": true,
+            "description": "ARM BlockchainMember payload to create",
+            "required": false,
             "schema": {
               "$ref": "#/definitions/BlockchainMember"
-            },
-            "x-nullable": false
+            }
           },
           {
-            "type": "string",
-            "name": "api-version",
-            "in": "query",
-            "x-nullable": true
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/ResourceGroupParameter"
           }
         ],
         "responses": {
           "200": {
-            "x-nullable": false,
-            "description": "",
+            "description": "Success",
             "schema": {
               "$ref": "#/definitions/BlockchainMember"
             }
           },
           "201": {
-            "x-nullable": false,
-            "description": "",
+            "description": "Success",
             "schema": {
               "$ref": "#/definitions/BlockchainMember"
             }
           },
           "400": {
-            "description": ""
+            "description": "Bad Request"
           }
-        }
-      },
-      "patch": {
-        "tags": [
-          "BlockchainMember"
-        ],
-        "operationId": "BlockchainMember_Patch",
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "blockchainMemberName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "name": "blockchainMember",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/BlockchainMember"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/BlockchainMember"
-            }
-          },
-          "400": {
-            "description": ""
-          },
-          "404": {
-            "description": ""
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "BlockchainMembers_Put": {
+            "$ref": "./examples/BlockchainMembers_Put.json"
           }
         }
       },
@@ -1891,78 +122,94 @@
         "tags": [
           "BlockchainMember"
         ],
-        "operationId": "BlockchainMember_Delete",
+        "description": "Delete blockchain member",
+        "operationId": "BlockchainMembers_Delete",
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
+            "description": "Blockchain member name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
           },
           {
-            "type": "string",
-            "name": "api-version",
-            "in": "query",
-            "x-nullable": true
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/ResourceGroupParameter"
           }
         ],
         "responses": {
           "202": {
-            "description": ""
+            "description": "Success"
           },
           "400": {
-            "description": ""
+            "description": "Bad Request"
           },
           "404": {
-            "description": ""
+            "description": "Not Found"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "BlockchainMembers_Delete": {
+            "$ref": "./examples/BlockchainMembers_Delete.json"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "BlockchainMember"
+        ],
+        "description": "Update blockchain member",
+        "operationId": "BlockchainMembers_Update",
+        "parameters": [
+          {
+            "name": "blockchainMemberName",
+            "in": "path",
+            "description": "Blockchain member name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "blockchainMember",
+            "in": "body",
+            "description": "ARM BlockchainMember payload to be updated",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/BlockchainMember"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BlockchainMember"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-ms-examples": {
+          "BlockchainMembers_Update": {
+            "$ref": "./examples/BlockchainMembers_Update.json"
           }
         }
       }
@@ -1972,71 +219,36 @@
         "tags": [
           "BlockchainMember"
         ],
-        "operationId": "BlockchainMember_List",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
+        "description": "List blockchain members of a resource group in a subscription",
+        "operationId": "BlockchainMembers_List",
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/ResourceGroupParameter"
           }
         ],
         "responses": {
           "200": {
-            "x-nullable": false,
-            "description": "",
+            "description": "Success",
             "schema": {
               "$ref": "#/definitions/BlockchainMemberCollection"
             }
           },
           "400": {
-            "description": ""
+            "description": "Bad Request"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "BlockchainMembers_List": {
+            "$ref": "./examples/BlockchainMembers_List.json"
           }
         }
       }
@@ -2046,64 +258,33 @@
         "tags": [
           "BlockchainMember"
         ],
-        "operationId": "BlockchainMember_ListAll",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
+        "description": "List blockchain members of a subscription",
+        "operationId": "BlockchainMembers_ListAll",
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
           "200": {
-            "x-nullable": false,
-            "description": "",
+            "description": "Success",
             "schema": {
               "$ref": "#/definitions/BlockchainMemberCollection"
             }
           },
           "400": {
-            "description": ""
+            "description": "Bad Request"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "BlockchainMembers_ListAll": {
+            "$ref": "./examples/BlockchainMembers_ListAll.json"
           }
         }
       }
@@ -2113,81 +294,46 @@
         "tags": [
           "BlockchainMember"
         ],
-        "operationId": "BlockchainMember_ListConsortiumMembers",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
+        "description": "List consortium members for a blockchain member",
+        "operationId": "BlockchainMembers_ListConsortiumMembers",
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
+            "description": "Blockchain member name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
           },
           {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/ResourceGroupParameter"
           }
         ],
         "responses": {
           "200": {
-            "x-nullable": false,
-            "description": "",
+            "description": "Success",
             "schema": {
               "$ref": "#/definitions/ConsortiumMemberCollection"
             }
           },
           "400": {
-            "description": ""
+            "description": "Bad Request"
           },
           "404": {
-            "description": ""
+            "description": "Not Found"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "BlockchainMembers_ListConsortiumMembers": {
+            "$ref": "./examples/BlockchainMembers_ListConsortiumMembers.json"
           }
         }
       }
@@ -2197,81 +343,43 @@
         "tags": [
           "BlockchainMember"
         ],
-        "operationId": "BlockchainMember_ListApiKeys",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
+        "description": "List blockchain member api keys",
+        "operationId": "BlockchainMembers_ListApiKeys",
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
+            "description": "Blockchain member name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
           },
           {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/ResourceGroupParameter"
           }
         ],
         "responses": {
           "200": {
-            "x-nullable": false,
-            "description": "",
+            "description": "Success",
             "schema": {
               "$ref": "#/definitions/ApiKeyCollection"
             }
           },
           "400": {
-            "description": ""
+            "description": "Bad Request"
           },
           "404": {
-            "description": ""
+            "description": "Not Found"
+          }
+        },
+        "x-ms-examples": {
+          "BlockchainMembers_ListApiKeys": {
+            "$ref": "./examples/BlockchainMembers_ListApiKeys.json"
           }
         }
       }
@@ -2281,96 +389,52 @@
         "tags": [
           "BlockchainMember"
         ],
-        "operationId": "BlockchainMember_RegenerateApiKeys",
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
+        "description": "Regenerate blockchain member api key",
+        "operationId": "BlockchainMembers_RegenerateApiKeys",
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
+            "description": "Blockchain member name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
           },
           {
             "name": "apiKey",
             "in": "body",
-            "required": true,
+            "description": "api key to be regenerate",
+            "required": false,
             "schema": {
               "$ref": "#/definitions/ApiKey"
-            },
-            "x-nullable": false
+            }
           },
           {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/ResourceGroupParameter"
           }
         ],
         "responses": {
           "200": {
-            "x-nullable": false,
-            "description": "",
+            "description": "Success",
             "schema": {
               "$ref": "#/definitions/ApiKeyCollection"
             }
           },
           "400": {
-            "description": ""
+            "description": "Bad Request"
           },
           "404": {
-            "description": ""
+            "description": "Not Found"
+          }
+        },
+        "x-ms-examples": {
+          "BlockchainMembers_RegenerateApiKeys": {
+            "$ref": "./examples/BlockchainMembers_RegenerateApiKeys.json"
           }
         }
       }
@@ -2380,48 +444,43 @@
         "tags": [
           "BlockchainMemberMetric"
         ],
-        "operationId": "BlockchainMemberMetric_StatusStatistics",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
+        "description": "Get blockchain member metric of status statistics",
+        "operationId": "BlockchainMemberMetrics_StatusStatistics",
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
+            "description": "Blockchain member name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
           }
         ],
         "responses": {
           "200": {
-            "x-nullable": false,
-            "description": "",
+            "description": "Success",
             "schema": {
               "$ref": "#/definitions/StatusStatistics"
             }
           },
           "400": {
-            "description": ""
+            "description": "Bad Request"
           },
           "404": {
-            "description": ""
+            "description": "Not Found"
+          }
+        },
+        "x-ms-examples": {
+          "BlockchainMemberMetrics_StatusStatistics": {
+            "$ref": "./examples/BlockchainMemberMetrics_StatusStatistics.json"
           }
         }
       }
@@ -2431,47 +490,39 @@
         "tags": [
           "BlockchainMemberMetric"
         ],
-        "operationId": "BlockchainMemberMetric_Blocks",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
+        "description": "Get blockchain member metric of blocks",
+        "operationId": "BlockchainMemberMetrics_Blocks",
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
+            "description": "Blockchain member name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
           },
           {
-            "type": "integer",
             "name": "count",
             "in": "query",
-            "format": "int32",
-            "x-nullable": false
+            "description": "Block count",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
           }
         ],
         "responses": {
           "200": {
-            "x-nullable": false,
-            "description": "",
+            "description": "Success",
             "schema": {
+              "uniqueItems": false,
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Block"
@@ -2479,10 +530,15 @@
             }
           },
           "400": {
-            "description": ""
+            "description": "Bad Request"
           },
           "404": {
-            "description": ""
+            "description": "Not Found"
+          }
+        },
+        "x-ms-examples": {
+          "BlockchainMemberMetrics_Blocks": {
+            "$ref": "./examples/BlockchainMemberMetrics_Blocks.json"
           }
         }
       }
@@ -2492,47 +548,39 @@
         "tags": [
           "BlockchainMemberMetric"
         ],
-        "operationId": "BlockchainMemberMetric_RecentTransactions",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
+        "description": "Get blockchain member metric of recent transactions",
+        "operationId": "BlockchainMemberMetrics_RecentTransactions",
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
+            "description": "Blockchain member name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
           },
           {
-            "type": "integer",
             "name": "count",
             "in": "query",
-            "format": "int32",
-            "x-nullable": false
+            "description": "Transaction count",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
           }
         ],
         "responses": {
           "200": {
-            "x-nullable": false,
-            "description": "",
+            "description": "Success",
             "schema": {
+              "uniqueItems": false,
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Transaction"
@@ -2540,10 +588,261 @@
             }
           },
           "400": {
-            "description": ""
+            "description": "Bad Request"
           },
           "404": {
-            "description": ""
+            "description": "Not Found"
+          }
+        },
+        "x-ms-examples": {
+          "BlockchainMemberMetrics_RecentTransactions": {
+            "$ref": "./examples/BlockchainMemberMetrics_RecentTransactions.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}/operations/{operationId}": {
+      "get": {
+        "tags": [
+          "BlockchainMemberOperationResult"
+        ],
+        "description": "Operation Result Contorller",
+        "operationId": "BlockchainMemberOperationResults_GetOperationResult",
+        "parameters": [
+          {
+            "name": "blockchainMemberName",
+            "in": "path",
+            "description": "Blockchain member name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "operationId",
+            "in": "path",
+            "description": "Operation Id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "monitor",
+            "in": "query",
+            "description": "Flag which if true returns OperationResultEntity and if false returns the status of te request",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BlockchainMember"
+            }
+          },
+          "202": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "BlockchainMemberOperationResults_GetOperationResult": {
+            "$ref": "./examples/BlockchainMemberOperationResults_GetOperationResult.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}/fabricIdentity/listConnectionProfiles": {
+      "post": {
+        "tags": [
+          "HLFIdentity"
+        ],
+        "description": "Get HLF connection profile which includes the client connection options including the TLS CA root certificate information.",
+        "operationId": "HLFIdentitys_ListServiceConnectionProfile",
+        "parameters": [
+          {
+            "name": "blockchainMemberName",
+            "in": "path",
+            "description": "Blockchain member name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/HLFConnectionProfile"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        },
+        "x-ms-examples": {
+          "HLFIdentitys_ListServiceConnectionProfile": {
+            "$ref": "./examples/HLFIdentitys_ListServiceConnectionProfile.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}/fabricIdentity/listMemberMSP": {
+      "post": {
+        "tags": [
+          "HLFIdentity"
+        ],
+        "description": "List HLF Membership service provider certificate information",
+        "operationId": "HLFIdentitys_ListMemberMSP",
+        "parameters": [
+          {
+            "name": "blockchainMemberName",
+            "in": "path",
+            "description": "Blockchain member name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/HLFMembershipServiceProvider"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        },
+        "x-ms-examples": {
+          "HLFIdentitys_ListMemberMSP": {
+            "$ref": "./examples/HLFIdentitys_ListMemberMSP.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Blockchain/locations/{locationName}/checkNameAvailability": {
+      "post": {
+        "tags": [
+          "Location"
+        ],
+        "description": "Check whether a resource name is available",
+        "operationId": "Locations_CheckNameAvailability",
+        "parameters": [
+          {
+            "name": "nameAvailabilityRequest",
+            "in": "body",
+            "description": "ARM NameAvailabilityRequest payload",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/NameAvailabilityRequest"
+            }
+          },
+          {
+            "name": "locationName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/NameAvailability"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "x-ms-examples": {
+          "Locations_CheckNameAvailability": {
+            "$ref": "./examples/Locations_CheckNameAvailability.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.Blockchain/locations/{locationName}/listConsortiums": {
+      "post": {
+        "tags": [
+          "Location"
+        ],
+        "description": "List available consortiums for a subscription",
+        "operationId": "Locations_ListAvailableConsortiums",
+        "parameters": [
+          {
+            "name": "locationName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ConsortiumCollection"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "x-ms-examples": {
+          "Locations_ListAvailableConsortiums": {
+            "$ref": "./examples/Locations_ListAvailableConsortiums.json"
           }
         }
       }
@@ -2553,45 +852,575 @@
         "tags": [
           "LocationOperationResult"
         ],
-        "operationId": "LocationOperationResult_Get",
+        "description": "Get async operation result",
+        "operationId": "LocationOperationResults_Get",
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
             "name": "locationName",
             "in": "path",
+            "description": "Location name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
           },
           {
-            "type": "string",
             "name": "operationId",
             "in": "path",
+            "description": "Operation id",
             "required": true,
-            "x-nullable": true
+            "type": "string"
           },
           {
-            "type": "string",
-            "name": "api-version",
-            "in": "query",
-            "x-nullable": true
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
           }
         ],
         "responses": {
           "202": {
-            "description": ""
+            "description": "Success"
           },
           "204": {
-            "description": ""
+            "description": "Success"
           },
           "404": {
-            "description": ""
+            "description": "Not Found"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "LocationOperationResults_Get": {
+            "$ref": "./examples/LocationOperationResults_Get.json"
+          }
+        }
+      }
+    },
+    "/providers/Microsoft.Blockchain/operations": {
+      "get": {
+        "tags": [
+          "Operation"
+        ],
+        "description": "List Microsoft.Blockchain Resource Provider available operations",
+        "operationId": "Operations_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResourceProviderOperationCollection"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "x-ms-examples": {
+          "Operations_List": {
+            "$ref": "./examples/Operations_List.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}/ordererNodes/{ordererNodeName}": {
+      "get": {
+        "tags": [
+          "OrdererNode"
+        ],
+        "description": "Get an Orderer node",
+        "operationId": "OrdererNodes_Get",
+        "parameters": [
+          {
+            "name": "blockchainMemberName",
+            "in": "path",
+            "description": "Blockchain member name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ordererNodeName",
+            "in": "path",
+            "description": "Orderer node name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/HLFOrdererNode"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        },
+        "x-ms-examples": {
+          "OrdererNodes_Get": {
+            "$ref": "./examples/OrdererNodes_Get.json"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "OrdererNode"
+        ],
+        "description": "Add Orderer node",
+        "operationId": "OrdererNodes_Create",
+        "parameters": [
+          {
+            "name": "blockchainMemberName",
+            "in": "path",
+            "description": "Blockchain member name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ordererNodeName",
+            "in": "path",
+            "description": "Orderer node name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/HLFOrdererNode"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        },
+        "x-ms-examples": {
+          "OrdererNodes_Create": {
+            "$ref": "./examples/OrdererNodes_Create.json"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "OrdererNode"
+        ],
+        "description": "Remove Orderer node",
+        "operationId": "OrdererNodes_Delete",
+        "parameters": [
+          {
+            "name": "blockchainMemberName",
+            "in": "path",
+            "description": "Blockchain member name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ordererNodeName",
+            "in": "path",
+            "description": "Orderer node name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        },
+        "x-ms-examples": {
+          "OrdererNodes_Delete": {
+            "$ref": "./examples/OrdererNodes_Delete.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}/ordererNodes": {
+      "get": {
+        "tags": [
+          "OrdererNode"
+        ],
+        "description": "List Orderer nodes",
+        "operationId": "OrdererNodes_List",
+        "parameters": [
+          {
+            "name": "blockchainMemberName",
+            "in": "path",
+            "description": "Blockchain member name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/HLFOrdererNodeCollection"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        },
+        "x-ms-examples": {
+          "OrdererNodes_List": {
+            "$ref": "./examples/OrdererNodes_List.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}/peerNodes/{peerNodeName}": {
+      "get": {
+        "tags": [
+          "PeerNode"
+        ],
+        "description": "Get a Peer node",
+        "operationId": "PeerNodes_Get",
+        "parameters": [
+          {
+            "name": "blockchainMemberName",
+            "in": "path",
+            "description": "Blockchain member name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "peerNodeName",
+            "in": "path",
+            "description": "Peer node name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/HLFPeerNode"
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        },
+        "x-ms-examples": {
+          "PeerNodes_Get": {
+            "$ref": "./examples/PeerNodes_Get.json"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "PeerNode"
+        ],
+        "description": "Add a Peer node",
+        "operationId": "PeerNodes_Add",
+        "parameters": [
+          {
+            "name": "blockchainMemberName",
+            "in": "path",
+            "description": "Blockchain member name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "peerNodeName",
+            "in": "path",
+            "description": "Peer node name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/HLFPeerNode"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "PeerNodes_Add": {
+            "$ref": "./examples/PeerNodes_Add.json"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PeerNode"
+        ],
+        "description": "Remove a Peer node",
+        "operationId": "PeerNodes_Remove",
+        "parameters": [
+          {
+            "name": "blockchainMemberName",
+            "in": "path",
+            "description": "Blockchain member name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "peerNodeName",
+            "in": "path",
+            "description": "Peer node name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/HLFPeerNode"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "PeerNodes_Remove": {
+            "$ref": "./examples/PeerNodes_Remove.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}/peerNodes": {
+      "get": {
+        "tags": [
+          "PeerNode"
+        ],
+        "description": "List Peer nodes",
+        "operationId": "PeerNodes_List",
+        "parameters": [
+          {
+            "name": "blockchainMemberName",
+            "in": "path",
+            "description": "Blockchain member name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/HLFPeerNodeCollection"
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "PeerNodes_List": {
+            "$ref": "./examples/PeerNodes_List.json"
+          }
+        }
+      }
+    },
+    "/skus": {
+      "get": {
+        "tags": [
+          "Sku"
+        ],
+        "description": "List the resource type skus",
+        "operationId": "Skus_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResourceTypeSkuCollection"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Skus_List": {
+            "$ref": "./examples/Skus_List.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}": {
+      "put": {
+        "tags": [
+          "Subscription"
+        ],
+        "description": "Creates or updates a subscription for Microsoft.Blockchain resource provider. Currently there is noop in our scenario.",
+        "operationId": "Subscriptions_Put",
+        "parameters": [
+          {
+            "name": "subscriptionRequest",
+            "in": "body",
+            "description": "subscriptionRequest",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/Subscription"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "x-ms-examples": {
+          "Subscriptions_Put": {
+            "$ref": "./examples/Subscriptions_Put.json"
           }
         }
       }
@@ -2601,55 +1430,50 @@
         "tags": [
           "TransactionNode"
         ],
-        "operationId": "TransactionNode_Get",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
+        "description": "Get transaction node",
+        "operationId": "TransactionNodes_Get",
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
+            "description": "Blockchain member name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
           },
           {
-            "type": "string",
             "name": "transactionNodeName",
             "in": "path",
+            "description": "Transaction node name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
           }
         ],
         "responses": {
           "200": {
-            "x-nullable": false,
-            "description": "",
+            "description": "Success",
             "schema": {
               "$ref": "#/definitions/TransactionNode"
             }
           },
           "400": {
-            "description": ""
+            "description": "Bad Request"
           },
           "404": {
-            "description": ""
+            "description": "Not Found"
+          }
+        },
+        "x-ms-examples": {
+          "TransactionNodes_Get": {
+            "$ref": "./examples/TransactionNodes_Get.json"
           }
         }
       },
@@ -2657,182 +1481,63 @@
         "tags": [
           "TransactionNode"
         ],
-        "operationId": "TransactionNode_Put",
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
+        "description": "Create or update transaction node",
+        "operationId": "TransactionNodes_Put",
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
+            "description": "Blockchain member name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
           },
           {
-            "type": "string",
             "name": "transactionNodeName",
             "in": "path",
+            "description": "Transaction node name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
           },
           {
             "name": "transactionNode",
             "in": "body",
-            "required": true,
+            "description": "ARM TransactionNode payload to create",
+            "required": false,
             "schema": {
               "$ref": "#/definitions/TransactionNode"
-            },
-            "x-nullable": false
+            }
           },
           {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/ApiVersionParameter"
           },
           {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/SubscriptionIdParameter"
           },
           {
-            "type": "object",
-            "name": "WaitHandle.Handle",
-            "in": "query",
-            "x-schema": {
-              "$ref": "#/definitions/IntPtr"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
+            "$ref": "#/parameters/ResourceGroupParameter"
           }
         ],
         "responses": {
           "200": {
-            "x-nullable": false,
-            "description": "",
+            "description": "Success",
             "schema": {
               "$ref": "#/definitions/TransactionNode"
             }
           },
           "201": {
-            "x-nullable": false,
-            "description": "",
+            "description": "Success",
             "schema": {
               "$ref": "#/definitions/TransactionNode"
             }
           },
           "400": {
-            "description": ""
+            "description": "Bad Request"
           }
-        }
-      },
-      "patch": {
-        "tags": [
-          "TransactionNode"
-        ],
-        "operationId": "TransactionNode_Patch",
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "blockchainMemberName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "transactionNodeName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "name": "transactionNode",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/TransactionNode"
-            },
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/TransactionNode"
-            }
-          },
-          "201": {
-            "x-nullable": false,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/TransactionNode"
-            }
-          },
-          "400": {
-            "description": ""
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "TransactionNodes_Put": {
+            "$ref": "./examples/TransactionNodes_Put.json"
           }
         }
       },
@@ -2840,52 +1545,112 @@
         "tags": [
           "TransactionNode"
         ],
-        "operationId": "TransactionNode_Delete",
+        "description": "Delete transaction node",
+        "operationId": "TransactionNodes_Delete",
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
+            "description": "Blockchain member name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
           },
           {
-            "type": "string",
             "name": "transactionNodeName",
             "in": "path",
+            "description": "Transaction node name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
           },
           {
-            "type": "string",
-            "name": "api-version",
-            "in": "query",
-            "x-nullable": true
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
           }
         ],
         "responses": {
           "202": {
-            "description": ""
+            "description": "Success"
           },
           "400": {
-            "description": ""
+            "description": "Bad Request"
           },
           "404": {
-            "description": ""
+            "description": "Not Found"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "TransactionNodes_Delete": {
+            "$ref": "./examples/TransactionNodes_Delete.json"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "TransactionNode"
+        ],
+        "description": "Update transaction node",
+        "operationId": "TransactionNodes_Patch",
+        "parameters": [
+          {
+            "name": "blockchainMemberName",
+            "in": "path",
+            "description": "Blockchain member name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "transactionNodeName",
+            "in": "path",
+            "description": "Transaction node name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "transactionNode",
+            "in": "body",
+            "description": "ARM TransactionNode payload to create",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/TransactionNode"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TransactionNode"
+            }
+          },
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TransactionNode"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "TransactionNodes_Patch": {
+            "$ref": "./examples/TransactionNodes_Patch.json"
           }
         }
       }
@@ -2895,45 +1660,40 @@
         "tags": [
           "TransactionNode"
         ],
-        "operationId": "TransactionNode_List",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
+        "description": "List transaction nodes",
+        "operationId": "TransactionNodes_List",
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
+            "description": "Blockchain member name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
           }
         ],
         "responses": {
           "200": {
-            "x-nullable": false,
-            "description": "",
+            "description": "Success",
             "schema": {
               "$ref": "#/definitions/TransactionNodeCollection"
             }
           },
           "400": {
-            "description": ""
+            "description": "Bad Request"
+          }
+        },
+        "x-ms-examples": {
+          "TransactionNodes_List": {
+            "$ref": "./examples/TransactionNodes_List.json"
           }
         }
       }
@@ -2943,55 +1703,50 @@
         "tags": [
           "TransactionNode"
         ],
-        "operationId": "TransactionNode_ListApiKeys",
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
+        "description": "List transaction node api keys",
+        "operationId": "TransactionNodes_ListApiKeys",
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
+            "description": "Blockchain member name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
           },
           {
-            "type": "string",
             "name": "transactionNodeName",
             "in": "path",
+            "description": "Transaction node name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
           }
         ],
         "responses": {
           "200": {
-            "x-nullable": false,
-            "description": "",
+            "description": "Success",
             "schema": {
               "$ref": "#/definitions/ApiKeyCollection"
             }
           },
           "400": {
-            "description": ""
+            "description": "Bad Request"
           },
           "404": {
-            "description": ""
+            "description": "Not Found"
+          }
+        },
+        "x-ms-examples": {
+          "TransactionNodes_ListApiKeys": {
+            "$ref": "./examples/TransactionNodes_ListApiKeys.json"
           }
         }
       }
@@ -3001,1215 +1756,173 @@
         "tags": [
           "TransactionNode"
         ],
-        "operationId": "TransactionNode_RegenerateApiKeys",
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
+        "description": "Regenerate blockchain member api key",
+        "operationId": "TransactionNodes_RegenerateApiKeys",
         "parameters": [
           {
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
             "name": "blockchainMemberName",
             "in": "path",
+            "description": "Blockchain member name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
           },
           {
-            "type": "string",
             "name": "transactionNodeName",
             "in": "path",
+            "description": "Transaction node name",
             "required": true,
-            "x-nullable": true
+            "type": "string"
           },
           {
             "name": "apiKey",
             "in": "body",
-            "required": true,
+            "description": "api key to be regenerate",
+            "required": false,
             "schema": {
               "$ref": "#/definitions/ApiKey"
-            },
-            "x-nullable": false
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
           }
         ],
         "responses": {
           "200": {
-            "x-nullable": false,
-            "description": "",
+            "description": "Success",
             "schema": {
               "$ref": "#/definitions/ApiKeyCollection"
             }
           },
           "400": {
-            "description": ""
+            "description": "Bad Request"
           },
           "404": {
-            "description": ""
+            "description": "Not Found"
+          }
+        },
+        "x-ms-examples": {
+          "TransactionNodes_RegenerateApiKeys": {
+            "$ref": "./examples/TransactionNodes_RegenerateApiKeys.json"
           }
         }
       }
     }
   },
   "definitions": {
-    "OperationResult": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "startTime": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "endTime": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "status": {
-          "type": "string"
-        }
-      }
-    },
     "BlockchainMember": {
+      "description": "ARM Resource BlockchainMember payload which exposed as Resource Provider request/response.",
       "type": "object",
       "properties": {
         "location": {
+          "description": "Gets or sets blockchain member location",
           "type": "string"
         },
         "name": {
+          "description": "Gets or sets blockchain member name",
           "type": "string"
         },
         "kind": {
-          "type": "string"
+          "description": "Gets blockchain kind",
+          "type": "string",
+          "readOnly": true
         },
         "properties": {
-          "$ref": "#/definitions/BlockchainMemberProperties"
+          "$ref": "#/definitions/BlockchainMemberProperties",
+          "description": "Gets or sets blockchain member properties"
         },
         "type": {
-          "type": "string"
+          "description": "Gets blockchain member ARM resource type",
+          "type": "string",
+          "readOnly": true
         },
         "id": {
-          "type": "string"
+          "description": "Gets blockchain member ARM resource id",
+          "type": "string",
+          "readOnly": true
         },
         "tags": {
+          "description": "Gets or sets blockchain member tags",
           "type": "object",
           "additionalProperties": {
             "type": "string"
           }
         },
         "sku": {
-          "$ref": "#/definitions/Sku"
+          "$ref": "#/definitions/Sku",
+          "description": "Gets or sets blockchain member sku"
         }
       }
     },
     "BlockchainMemberProperties": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/BlockchainMemberPropertiesBase"
-        },
-        {
-          "type": "object",
-          "required": [
-            "provisioningState"
-          ],
-          "properties": {
-            "provisioningState": {
-              "$ref": "#/definitions/BlockchainMemberProvisioningState"
-            },
-            "dns": {
-              "type": "string"
-            }
-          }
-        }
-      ]
-    },
-    "BlockchainMemberProvisioningState": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "NotSpecified",
-        "Updating",
-        "Deleting",
-        "Succeeded",
-        "Failed",
-        "Stale",
-        "Suspending",
-        "Suspended"
-      ],
-      "enum": [
-        "NotSpecified",
-        "Updating",
-        "Deleting",
-        "Succeeded",
-        "Failed",
-        "Stale",
-        "Suspending",
-        "Suspended"
-      ]
-    },
-    "BlockchainMemberPropertiesBase": {
+      "description": "BlockchainMemberProperties payload in ARM Resource BlockchainMember payload.",
       "type": "object",
-      "required": [
-        "protocol"
-      ],
       "properties": {
+        "provisioningState": {
+          "description": "Gets or sets blockchain member provision state",
+          "enum": [
+            "NotSpecified",
+            "Updating",
+            "Deleting",
+            "Succeeded",
+            "Failed",
+            "Stale",
+            "Suspending",
+            "Suspended"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "name": "BlockchainMemberProvisioningState",
+            "modelAsString": true
+          }
+        },
+        "dns": {
+          "description": "Gets or sets blockchain member dns endpoint",
+          "type": "string"
+        },
         "protocol": {
-          "$ref": "#/definitions/BlockchainProtocol"
-        }
-      }
-    },
-    "BlockchainProtocol": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "NotSpecified",
-        "Parity",
-        "Quorum",
-        "Corda",
-        "HyperledgerFabric"
-      ],
-      "enum": [
-        "NotSpecified",
-        "Parity",
-        "Quorum",
-        "Corda",
-        "HyperledgerFabric"
-      ]
-    },
-    "QuorumMemberProperties": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/BlockchainMemberProperties"
-        },
-        {
-          "type": "object",
-          "required": [
-            "nodeProvisioningState"
+          "description": "Gets or sets blockchain protocol",
+          "enum": [
+            "NotSpecified",
+            "Parity",
+            "Quorum",
+            "Corda",
+            "HyperledgerFabric"
           ],
-          "properties": {
-            "validatorNodesSku": {
-              "$ref": "#/definitions/BlockchainMemberNodesSku"
-            },
-            "userName": {
-              "type": "string"
-            },
-            "password": {
-              "type": "string"
-            },
-            "consortium": {
-              "type": "string"
-            },
-            "consortiumRole": {
-              "type": "string"
-            },
-            "consortiumMemberDisplayName": {
-              "type": "string"
-            },
-            "consortiumManagementAccountAddress": {
-              "type": "string"
-            },
-            "consortiumManagementAccountPassword": {
-              "type": "string"
-            },
-            "firewallRules": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/FirewallRule"
-              }
-            },
-            "rootContractAddress": {
-              "type": "string"
-            },
-            "publicKey": {
-              "type": "string"
-            },
-            "nodeProvisioningState": {
-              "$ref": "#/definitions/NodeProvisioningState"
-            }
+          "type": "string",
+          "x-ms-enum": {
+            "name": "BlockchainProtocol",
+            "modelAsString": true
           }
-        }
-      ]
-    },
-    "BlockchainMemberNodesSku": {
-      "type": "object",
-      "required": [
-        "capacity"
-      ],
-      "properties": {
-        "capacity": {
-          "type": "integer",
-          "format": "int32"
-        }
-      }
-    },
-    "FirewallRule": {
-      "type": "object",
-      "properties": {
-        "ruleName": {
-          "type": "string"
-        },
-        "startIpAddress": {
-          "type": "string"
-        },
-        "endIpAddress": {
-          "type": "string"
-        }
-      }
-    },
-    "NodeProvisioningState": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "NotSpecified",
-        "Updating",
-        "Deleting",
-        "Succeeded",
-        "Failed"
-      ],
-      "enum": [
-        "NotSpecified",
-        "Updating",
-        "Deleting",
-        "Succeeded",
-        "Failed"
-      ]
-    },
-    "HLFMemberProperties": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/BlockchainMemberProperties"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "orderers": {
-              "$ref": "#/definitions/HLFOrderer"
-            },
-            "peers": {
-              "$ref": "#/definitions/HLFPeer"
-            },
-            "egressIP": {
-              "type": "string"
-            },
-            "certificateAuthority": {
-              "$ref": "#/definitions/HLFCertificateAuthorityConfiguration"
-            },
-            "firewallRules": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/FirewallRule"
-              }
-            },
-            "protocolVersion": {
-              "type": "string"
-            }
-          }
-        }
-      ]
-    },
-    "HLFOrderer": {
-      "type": "object",
-      "required": [
-        "count"
-      ],
-      "properties": {
-        "count": {
-          "type": "integer",
-          "format": "int32",
-          "default": -1
-        },
-        "consortiumName": {
-          "type": "string"
-        }
-      }
-    },
-    "HLFPeer": {
-      "type": "object",
-      "required": [
-        "count",
-        "db"
-      ],
-      "properties": {
-        "count": {
-          "type": "integer",
-          "format": "int32",
-          "default": -1
-        },
-        "db": {
-          "$ref": "#/definitions/HLFDatabaseType"
-        }
-      }
-    },
-    "HLFDatabaseType": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "NotSpecified",
-        "LevelDB",
-        "CouchDB"
-      ],
-      "enum": [
-        "NotSpecified",
-        "LevelDB",
-        "CouchDB"
-      ]
-    },
-    "HLFCertificateAuthorityConfiguration": {
-      "type": "object",
-      "properties": {
-        "applicationId": {
-          "type": "string"
-        },
-        "metadataEndpoint": {
-          "type": "string"
-        },
-        "allowedAudiences": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "certificates": {
-          "$ref": "#/definitions/HLFRootCaCertificateConfiguration"
-        },
-        "endpoint": {
-          "type": "string"
-        }
-      }
-    },
-    "HLFRootCaCertificateConfiguration": {
-      "type": "object",
-      "properties": {
-        "vaultResourceId": {
-          "type": "string"
-        },
-        "enrollmentCertKeyVaultUri": {
-          "type": "string"
-        },
-        "tlsCertKeyVaultUri": {
-          "type": "string"
         }
       }
     },
     "Sku": {
+      "description": "Blockchain member SKU in ARM payload",
       "type": "object",
       "properties": {
         "name": {
+          "description": "Gets or sets SKU name",
           "type": "string"
         },
         "tier": {
+          "description": "Gets or sets SKU tier",
           "type": "string"
-        }
-      }
-    },
-    "CordaMember": {
-      "type": "object",
-      "properties": {
-        "location": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "properties": {
-          "$ref": "#/definitions/CordaMemberProperties"
-        },
-        "type": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "tags": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "CordaMemberProperties": {
-      "type": "object",
-      "required": [
-        "provisioningState"
-      ],
-      "properties": {
-        "provisioningState": {
-          "readOnly": true,
-          "allOf": [
-            {
-              "$ref": "#/definitions/BlockchainMemberProvisioningState"
-            }
-          ]
-        },
-        "dns": {
-          "type": "string"
-        },
-        "userName": {
-          "type": "string"
-        },
-        "password": {
-          "type": "string"
-        },
-        "legalName": {
-          "type": "string"
-        },
-        "networkType": {
-          "type": "string"
-        },
-        "networkServiceAddress": {
-          "type": "string"
-        },
-        "certificateProperties": {
-          "$ref": "#/definitions/CordaMemberCertificateProperties"
-        },
-        "cordappPackageUri": {
-          "type": "string",
-          "format": "uri"
-        },
-        "cordappPackageName": {
-          "type": "string"
-        }
-      }
-    },
-    "CordaMemberCertificateProperties": {
-      "type": "object",
-      "properties": {
-        "nodeCertificateJKSFileContent": {
-          "type": "string"
-        },
-        "nodeCertificateJKSFilePassword": {
-          "type": "string"
-        },
-        "nodeTLSCertificateJKSFileContent": {
-          "type": "string"
-        },
-        "trustStoreJKSFileContent": {
-          "type": "string"
-        },
-        "trustStoreJKSFilePassword": {
-          "type": "string"
-        }
-      }
-    },
-    "CloudError": {
-      "type": "object",
-      "properties": {
-        "code": {
-          "type": "string"
-        },
-        "message": {
-          "type": "string"
-        },
-        "target": {
-          "type": "string"
-        },
-        "details": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CloudError"
-          }
-        },
-        "additionalInfo": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AdditionalErrorInfo"
-          }
-        }
-      }
-    },
-    "AdditionalErrorInfo": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string"
-        },
-        "info": {}
-      }
-    },
-    "CordaMemberCollection": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CordaMember"
-          }
-        },
-        "nextLink": {
-          "type": "string"
-        }
-      }
-    },
-    "ControlledTaskOfActionResultOfCordaMember": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/ControlledTask"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "result": {
-              "$ref": "#/definitions/CordaMember"
-            }
-          }
-        }
-      ]
-    },
-    "ControlledTask": {
-      "type": "object",
-      "required": [
-        "id",
-        "isCompleted",
-        "isCanceled",
-        "isFaulted",
-        "status"
-      ],
-      "properties": {
-        "id": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "isCompleted": {
-          "type": "boolean"
-        },
-        "isCanceled": {
-          "type": "boolean"
-        },
-        "isFaulted": {
-          "type": "boolean"
-        },
-        "exception": {
-          "$ref": "#/definitions/AggregateException"
-        },
-        "status": {
-          "$ref": "#/definitions/TaskStatus"
-        }
-      }
-    },
-    "AggregateException": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Exception"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "InnerExceptions": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Exception"
-              }
-            }
-          }
-        }
-      ]
-    },
-    "Exception": {
-      "type": "object",
-      "properties": {
-        "Message": {
-          "type": "string"
-        },
-        "InnerException": {
-          "$ref": "#/definitions/Exception"
-        },
-        "StackTrace": {
-          "type": "string"
-        },
-        "Source": {
-          "type": "string"
-        }
-      }
-    },
-    "TaskStatus": {
-      "type": "integer",
-      "description": "",
-      "x-enumNames": [
-        "Created",
-        "WaitingForActivation",
-        "WaitingToRun",
-        "Running",
-        "WaitingForChildrenToComplete",
-        "RanToCompletion",
-        "Canceled",
-        "Faulted"
-      ],
-      "enum": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7
-      ]
-    },
-    "ControlledTaskOfActionResultOfBlockchainMember": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/ControlledTask"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "result": {
-              "$ref": "#/definitions/BlockchainMember"
-            }
-          }
-        }
-      ]
-    },
-    "HLFConnectionProfile": {
-      "type": "object",
-      "properties": {
-        "client": {
-          "$ref": "#/definitions/ConnectionProfileClient"
-        },
-        "name": {
-          "type": "string"
-        },
-        "organizations": {
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/Organization"
-          }
-        },
-        "peers": {
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/NodeProperties"
-          }
-        },
-        "orderers": {
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/NodeProperties"
-          }
-        },
-        "version": {
-          "type": "string"
-        },
-        "wallet": {
-          "type": "string"
-        }
-      }
-    },
-    "ConnectionProfileClient": {
-      "type": "object",
-      "properties": {
-        "connection": {
-          "$ref": "#/definitions/Connection"
-        },
-        "organization": {
-          "type": "string"
-        }
-      }
-    },
-    "Connection": {
-      "type": "object",
-      "properties": {
-        "timeout": {
-          "$ref": "#/definitions/ConnectionTimeout"
-        }
-      }
-    },
-    "ConnectionTimeout": {
-      "type": "object",
-      "properties": {
-        "orderer": {
-          "type": "string"
-        },
-        "peer": {
-          "$ref": "#/definitions/Peer"
-        }
-      }
-    },
-    "Peer": {
-      "type": "object",
-      "properties": {
-        "endorser": {
-          "type": "string"
-        }
-      }
-    },
-    "Organization": {
-      "type": "object",
-      "properties": {
-        "mspid": {
-          "type": "string"
-        },
-        "peers": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "orderers": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "NodeProperties": {
-      "type": "object",
-      "properties": {
-        "grpcOptions": {
-          "$ref": "#/definitions/GRPCOptions"
-        },
-        "tlsCACerts": {
-          "$ref": "#/definitions/TLSCACertificates"
-        },
-        "url": {
-          "type": "string",
-          "format": "uri"
-        }
-      }
-    },
-    "GRPCOptions": {
-      "type": "object",
-      "properties": {
-        "hostnameOverride": {
-          "type": "string"
-        },
-        "ssl-target-name-override": {
-          "type": "string"
-        }
-      }
-    },
-    "TLSCACertificates": {
-      "type": "object",
-      "properties": {
-        "pem": {
-          "type": "string"
-        }
-      }
-    },
-    "IntPtr": {
-      "type": "object"
-    },
-    "HLFMembershipServiceProvider": {
-      "type": "object",
-      "properties": {
-        "msp_id": {
-          "type": "string"
-        },
-        "tlscacerts": {
-          "type": "string"
-        },
-        "cacerts": {
-          "type": "string"
-        }
-      }
-    },
-    "NameAvailability": {
-      "type": "object",
-      "required": [
-        "nameAvailable",
-        "reason"
-      ],
-      "properties": {
-        "nameAvailable": {
-          "type": "boolean"
-        },
-        "message": {
-          "type": "string"
-        },
-        "reason": {
-          "$ref": "#/definitions/NameAvailabilityReason"
-        }
-      }
-    },
-    "NameAvailabilityReason": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "NotSpecified",
-        "AlreadyExists",
-        "Invalid",
-        "Reserved"
-      ],
-      "enum": [
-        "NotSpecified",
-        "AlreadyExists",
-        "Invalid",
-        "Reserved"
-      ]
-    },
-    "NameAvailabilityRequest": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string"
-        }
-      }
-    },
-    "ConsortiumCollection": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Consortium"
-          }
-        }
-      }
-    },
-    "Consortium": {
-      "type": "object",
-      "required": [
-        "protocol"
-      ],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "protocol": {
-          "$ref": "#/definitions/BlockchainProtocol"
-        }
-      }
-    },
-    "ResourceProviderOperationCollection": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ResourceProviderOperation"
-          }
-        }
-      }
-    },
-    "ResourceProviderOperation": {
-      "type": "object",
-      "required": [
-        "isDataAction"
-      ],
-      "properties": {
-        "origin": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "isDataAction": {
-          "type": "boolean"
-        },
-        "display": {
-          "$ref": "#/definitions/ResourceProviderOperationDisplay"
-        }
-      }
-    },
-    "ResourceProviderOperationDisplay": {
-      "type": "object",
-      "properties": {
-        "provider": {
-          "type": "string"
-        },
-        "resource": {
-          "type": "string"
-        },
-        "operation": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        }
-      }
-    },
-    "ResourceTypeSkuCollection": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ResourceTypeSku"
-          }
-        }
-      }
-    },
-    "ResourceTypeSku": {
-      "type": "object",
-      "properties": {
-        "resourceType": {
-          "type": "string"
-        },
-        "skus": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SkuSetting"
-          }
-        }
-      }
-    },
-    "SkuSetting": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "tier": {
-          "type": "string"
-        },
-        "locations": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "requiredFeatures": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "Subscription": {
-      "type": "object",
-      "required": [
-        "state",
-        "registrationDate",
-        "properties"
-      ],
-      "properties": {
-        "state": {
-          "$ref": "#/definitions/SubscriptionState"
-        },
-        "registrationDate": {
-          "type": "string"
-        },
-        "properties": {
-          "$ref": "#/definitions/SubscriptionRequestProperties"
-        }
-      }
-    },
-    "SubscriptionState": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Registered",
-        "Unregistered",
-        "Warned",
-        "Suspended",
-        "Deleted"
-      ],
-      "enum": [
-        "Registered",
-        "Unregistered",
-        "Warned",
-        "Suspended",
-        "Deleted"
-      ]
-    },
-    "SubscriptionRequestProperties": {
-      "type": "object",
-      "properties": {
-        "tenantId": {
-          "type": "string"
-        },
-        "locationPlacementId": {
-          "type": "string"
-        },
-        "quotaId": {
-          "type": "string"
-        },
-        "registeredFeatures": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/RegisteredFeatures"
-          }
-        }
-      }
-    },
-    "RegisteredFeatures": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "state": {
-          "type": "string"
-        }
-      }
-    },
-    "HLFOrdererNode": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/HLFNodeBase"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "string"
-            },
-            "type": {
-              "type": "string"
-            },
-            "properties": {
-              "$ref": "#/definitions/HLFOrdererNodeProperties"
-            }
-          }
-        }
-      ]
-    },
-    "HLFOrdererNodeProperties": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/HLFNodePropertiesBase"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "consortiumName": {
-              "type": "string"
-            }
-          }
-        }
-      ]
-    },
-    "HLFNodePropertiesBase": {
-      "type": "object",
-      "x-abstract": true,
-      "required": [
-        "provisioningState"
-      ],
-      "properties": {
-        "provisioningState": {
-          "$ref": "#/definitions/HLFNodeProvisioningState"
-        },
-        "dns": {
-          "type": "string"
-        },
-        "mspId": {
-          "type": "string"
-        }
-      }
-    },
-    "HLFNodeProvisioningState": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "NotSpecified",
-        "Updating",
-        "Deleting",
-        "Succeeded",
-        "Failed",
-        "Deleted"
-      ],
-      "enum": [
-        "NotSpecified",
-        "Updating",
-        "Deleting",
-        "Succeeded",
-        "Failed",
-        "Deleted"
-      ]
-    },
-    "HLFNodeBase": {
-      "type": "object",
-      "x-abstract": true,
-      "properties": {
-        "location": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        }
-      }
-    },
-    "HLFOrdererNodeCollection": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/HLFOrdererNode"
-          }
-        }
-      }
-    },
-    "HLFPeerNode": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/HLFNodeBase"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "string"
-            },
-            "type": {
-              "type": "string"
-            },
-            "properties": {
-              "$ref": "#/definitions/HLFPeerNodeProperties"
-            }
-          }
-        }
-      ]
-    },
-    "HLFPeerNodeProperties": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/HLFNodePropertiesBase"
-        },
-        {
-          "type": "object",
-          "required": [
-            "db"
-          ],
-          "properties": {
-            "db": {
-              "$ref": "#/definitions/HLFDatabaseType"
-            }
-          }
-        }
-      ]
-    },
-    "HLFPeerNodeCollection": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/HLFPeerNode"
-          }
         }
       }
     },
     "BlockchainMemberCollection": {
+      "description": "Collection of ARM Resource BlockchainMember payload which exposed as Resource Provider request/response.",
       "type": "object",
       "properties": {
         "value": {
+          "description": "Gets or sets collection of blockchain members",
+          "uniqueItems": false,
           "type": "array",
           "items": {
             "$ref": "#/definitions/BlockchainMember"
@@ -4218,9 +1931,12 @@
       }
     },
     "ConsortiumMemberCollection": {
+      "description": "Collection of consortium payload",
       "type": "object",
       "properties": {
         "value": {
+          "description": "Gets or sets collection of consortiums",
+          "uniqueItems": false,
           "type": "array",
           "items": {
             "$ref": "#/definitions/ConsortiumMember"
@@ -4229,40 +1945,48 @@
       }
     },
     "ConsortiumMember": {
+      "description": "Consortium Member object",
       "type": "object",
-      "required": [
-        "dateModified"
-      ],
       "properties": {
         "name": {
+          "description": "Gets or sets consortium member name",
           "type": "string"
         },
         "displayName": {
+          "description": "Gets or sets consortium member display name",
           "type": "string"
         },
         "subscriptionId": {
+          "description": "Gets or sets consortium member subscription id",
           "type": "string"
         },
         "role": {
+          "description": "Gets or sets consortium member role",
           "type": "string"
         },
         "status": {
+          "description": "Gets or sets consortium member status",
           "type": "string"
         },
         "joinDate": {
-          "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Gets or sets consortium member join date",
+          "type": "string"
         },
         "dateModified": {
-          "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Gets or sets consortium modified date",
+          "type": "string"
         }
       }
     },
     "ApiKeyCollection": {
+      "description": "Collection of ARM Resource ApiKey payload which exposed as Resource Provider response.",
       "type": "object",
       "properties": {
         "keys": {
+          "description": "Gets or sets collection of ApiKey",
+          "uniqueItems": false,
           "type": "array",
           "items": {
             "$ref": "#/definitions/ApiKey"
@@ -4271,65 +1995,71 @@
       }
     },
     "ApiKey": {
+      "description": "ARM Resource ApiKey payload which exposed as Resource Provider request/response.",
       "type": "object",
       "properties": {
         "keyName": {
+          "description": "Gets or sets api key name",
           "type": "string"
         },
         "value": {
+          "description": "Gets or sets api key value",
           "type": "string"
         }
       }
     },
     "StatusStatistics": {
+      "description": "Status for the blockchain application",
       "type": "object",
-      "required": [
-        "tps",
-        "rangedTxns",
-        "blockHeight"
-      ],
       "properties": {
         "tps": {
-          "type": "number",
-          "format": "double"
+          "format": "double",
+          "description": "Gets or sets transaction per seconds",
+          "type": "number"
         },
         "rangedTxns": {
-          "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "description": "Gets or sets number of transactions processed in specific time range",
+          "type": "integer"
         },
         "blockHeight": {
-          "type": "integer",
-          "format": "int64"
+          "format": "int64",
+          "description": "Gets or sets block height",
+          "type": "integer"
         }
       }
     },
     "Block": {
+      "description": "Block",
       "type": "object",
-      "required": [
-        "number",
-        "size",
-        "timestamp"
-      ],
       "properties": {
         "hash": {
+          "description": "Gets or sets block hash",
           "type": "string"
         },
         "parent": {
+          "description": "Gets or sets parent block hash",
           "type": "string"
         },
         "miner": {
+          "description": "Gets or sets miner address",
           "type": "string"
         },
         "number": {
-          "$ref": "#/definitions/BigInteger"
+          "description": "Gets or sets block number",
+          "type": "string"
         },
         "size": {
-          "$ref": "#/definitions/BigInteger"
+          "description": "Gets or sets the byte size to the block",
+          "type": "string"
         },
         "timestamp": {
-          "$ref": "#/definitions/BigInteger"
+          "description": "Gets or sets the block unix timestamp in seconds",
+          "type": "string"
         },
         "transactions": {
+          "description": "Gets or sets transactions precessed in the block",
+          "uniqueItems": false,
           "type": "array",
           "items": {
             "$ref": "#/definitions/Transaction"
@@ -4337,123 +2067,718 @@
         }
       }
     },
-    "BigInteger": {
+    "Transaction": {
+      "description": "Blockchain transaction",
       "type": "object",
-      "required": [
-        "_sign",
-        "IsPowerOfTwo",
-        "IsZero",
-        "IsOne",
-        "IsEven",
-        "Sign",
-        "_Sign"
-      ],
       "properties": {
-        "_sign": {
-          "type": "integer",
-          "format": "int32"
+        "from": {
+          "description": "Gets or sets the source of the transaction",
+          "type": "string"
         },
-        "_bits": {
+        "to": {
+          "description": "Gets or sets the destnation of the transaction",
+          "type": "string"
+        },
+        "hash": {
+          "description": "Gets or sets the transaction hash",
+          "type": "string"
+        },
+        "value": {
+          "description": "Gets or sets the amount of value transferred",
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "int64",
+          "description": "Gets or sets the unix timestamp occurred",
+          "type": "integer"
+        }
+      }
+    },
+    "HLFConnectionProfile": {
+      "description": "Gets or sets HLFConnectionProfile",
+      "type": "object",
+      "properties": {
+        "client": {
+          "$ref": "#/definitions/ConnectionProfileClient",
+          "description": "Gets or sets ConnectionProfileClient"
+        },
+        "name": {
+          "description": "Gets or sets Name in Connection Profile",
+          "type": "string"
+        },
+        "organizations": {
+          "description": "Gets Organizations in Connection Profile",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Organization"
+          },
+          "readOnly": true
+        },
+        "peers": {
+          "description": "Gets Peers in Connection Profile",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/NodeProperties"
+          },
+          "readOnly": true
+        },
+        "orderers": {
+          "description": "Gets Orderers in Connection Profile",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/NodeProperties"
+          },
+          "readOnly": true
+        },
+        "version": {
+          "description": "Gets or sets Version in Connection Profile",
+          "type": "string"
+        },
+        "wallet": {
+          "description": "Gets or sets Wallet in Connection Profile",
+          "type": "string"
+        }
+      }
+    },
+    "ConnectionProfileClient": {
+      "description": "Gets or sets ConnectionProfileClient",
+      "type": "object",
+      "properties": {
+        "connection": {
+          "$ref": "#/definitions/Connection",
+          "description": "Gets or sets Connection"
+        },
+        "organization": {
+          "description": "Gets or sets Organization",
+          "type": "string"
+        }
+      }
+    },
+    "Organization": {
+      "description": "Gets or sets public key of the cert pair",
+      "type": "object",
+      "properties": {
+        "mspid": {
+          "description": "Gets or sets Mspid",
+          "type": "string"
+        },
+        "peers": {
+          "description": "Gets public Peers",
+          "uniqueItems": false,
           "type": "array",
           "items": {
-            "type": "integer"
-          }
+            "type": "string"
+          },
+          "readOnly": true
         },
-        "IsPowerOfTwo": {
-          "type": "boolean"
-        },
-        "IsZero": {
-          "type": "boolean"
-        },
-        "IsOne": {
-          "type": "boolean"
-        },
-        "IsEven": {
-          "type": "boolean"
-        },
-        "Sign": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "_Sign": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "_Bits": {
+        "orderers": {
+          "description": "Gets public Orderer",
+          "uniqueItems": false,
           "type": "array",
           "items": {
-            "type": "integer"
+            "type": "string"
+          },
+          "readOnly": true
+        }
+      }
+    },
+    "NodeProperties": {
+      "description": "Gets or sets public key of the cert pair",
+      "type": "object",
+      "properties": {
+        "grpcOptions": {
+          "$ref": "#/definitions/GRPCOptions",
+          "description": "Gets or sets public key of the cert pair"
+        },
+        "tlsCACerts": {
+          "$ref": "#/definitions/TLSCACertificates",
+          "description": "Gets or sets public key of the cert pair"
+        },
+        "url": {
+          "description": "Gets or sets public key of the cert pair",
+          "type": "string"
+        }
+      }
+    },
+    "Connection": {
+      "description": "Gets or sets Connection",
+      "type": "object",
+      "properties": {
+        "timeout": {
+          "$ref": "#/definitions/ConnectionTimeout",
+          "description": "Gets or sets Timeout"
+        }
+      }
+    },
+    "GRPCOptions": {
+      "description": "Gets or sets public key of the cert pair",
+      "type": "object",
+      "properties": {
+        "hostnameOverride": {
+          "description": "Gets or sets public key of the cert pair",
+          "type": "string"
+        },
+        "ssl-target-name-override": {
+          "description": "Gets or sets public key of the cert pair",
+          "type": "string"
+        }
+      }
+    },
+    "TLSCACertificates": {
+      "description": "Gets or sets TlsCaCerts",
+      "type": "object",
+      "properties": {
+        "pem": {
+          "description": "Gets or sets Pem of TlsCaCerts",
+          "type": "string"
+        }
+      }
+    },
+    "ConnectionTimeout": {
+      "description": "Gets or sets Timeout",
+      "type": "object",
+      "properties": {
+        "orderer": {
+          "description": "Gets or sets Orderer",
+          "type": "string"
+        },
+        "peer": {
+          "$ref": "#/definitions/Peer",
+          "description": "Gets or sets Peer"
+        }
+      }
+    },
+    "Peer": {
+      "description": "Gets or sets Peer",
+      "type": "object",
+      "properties": {
+        "endorser": {
+          "description": "Gets or sets Endorser",
+          "type": "string"
+        }
+      }
+    },
+    "HLFMembershipServiceProvider": {
+      "description": "HLFMembershipServiceProvider Properties",
+      "type": "object",
+      "properties": {
+        "msp_id": {
+          "description": "Gets or sets Membership service provider identifier",
+          "type": "string"
+        },
+        "tlscacerts": {
+          "description": "Gets or sets HLF TLS CA root Cert public information",
+          "type": "string"
+        },
+        "cacerts": {
+          "description": "Gets or sets HLF enrollment CA root Cert public information",
+          "type": "string"
+        }
+      }
+    },
+    "NameAvailabilityRequest": {
+      "description": "ARM Resource NameAvailabilityRequest payload which exposed as Resource Provider request.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Gets or sets name to check",
+          "type": "string"
+        },
+        "type": {
+          "description": "Gets or sets type of the resource to check",
+          "type": "string"
+        }
+      }
+    },
+    "NameAvailability": {
+      "description": "ARM Resource NameAvailability payload which exposed as Resource Provider response.",
+      "type": "object",
+      "properties": {
+        "nameAvailable": {
+          "description": "Gets or sets a value indicating whether gets or sets whether the name is available",
+          "type": "boolean"
+        },
+        "message": {
+          "description": "Gets or sets message",
+          "type": "string"
+        },
+        "reason": {
+          "description": "Gets or sets name availability reason",
+          "enum": [
+            "NotSpecified",
+            "AlreadyExists",
+            "Invalid",
+            "Reserved"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "name": "NameAvailabilityReason",
+            "modelAsString": true
           }
         }
       }
     },
-    "Transaction": {
+    "ConsortiumCollection": {
+      "description": "Collection of consortium payload",
       "type": "object",
-      "required": [
-        "value",
-        "timestamp"
-      ],
       "properties": {
-        "from": {
-          "type": "string"
-        },
-        "to": {
-          "type": "string"
-        },
-        "hash": {
-          "type": "string"
-        },
         "value": {
-          "$ref": "#/definitions/BigInteger"
+          "description": "Gets or sets collection of consortiums",
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Consortium"
+          }
+        }
+      }
+    },
+    "Consortium": {
+      "description": "Consortium payload",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Gets or sets blockchain member name",
+          "type": "string"
         },
-        "timestamp": {
-          "type": "integer",
-          "format": "int64"
+        "protocol": {
+          "description": "Gets or sets protocol of the consortium",
+          "enum": [
+            "NotSpecified",
+            "Parity",
+            "Quorum",
+            "Corda",
+            "HyperledgerFabric"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "name": "BlockchainProtocol",
+            "modelAsString": true
+          }
+        }
+      }
+    },
+    "ResourceProviderOperationCollection": {
+      "description": "Collection of ARM Resource Operation payload which exposed as Resource Provider response.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "Gets or sets collection of operations",
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResourceProviderOperation"
+          }
+        }
+      }
+    },
+    "ResourceProviderOperation": {
+      "description": "ARM Resource Operation payload which exposed as Resource Provider response.",
+      "type": "object",
+      "properties": {
+        "origin": {
+          "description": "Gets or sets origin",
+          "type": "string"
+        },
+        "name": {
+          "description": "Gets or sets operation name",
+          "type": "string"
+        },
+        "isDataAction": {
+          "description": "Gets or sets a value indicating whether the operation is a data action or not",
+          "type": "boolean"
+        },
+        "display": {
+          "$ref": "#/definitions/ResourceProviderOperationDisplay",
+          "description": "Gets or sets operation display"
+        }
+      }
+    },
+    "ResourceProviderOperationDisplay": {
+      "description": "ARM Resource Operation.Display payload which exposed as Resource Provider response",
+      "type": "object",
+      "properties": {
+        "provider": {
+          "description": "Gets or sets name of the provider for display purposes",
+          "type": "string"
+        },
+        "resource": {
+          "description": "Gets or sets name of the resource type for display purposes",
+          "type": "string"
+        },
+        "operation": {
+          "description": "Gets or sets name of the operation for display purposes",
+          "type": "string"
+        },
+        "description": {
+          "description": "Gets or sets description of the provider for display purposes",
+          "type": "string"
+        }
+      }
+    },
+    "HLFOrdererNode": {
+      "description": "HLF Orderer Node Properties",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Gets ARM id of the resource",
+          "type": "string",
+          "readOnly": true
+        },
+        "type": {
+          "description": "Gets HLF Node Type to Orderer",
+          "type": "string",
+          "readOnly": true
+        },
+        "properties": {
+          "$ref": "#/definitions/HLFOrdererNodeProperties",
+          "description": "Gets or sets HLF Orderer node properties"
+        },
+        "location": {
+          "description": "Gets or sets HLF Node Location",
+          "type": "string"
+        },
+        "name": {
+          "description": "Gets or sets HLF Node Name",
+          "type": "string"
+        }
+      }
+    },
+    "HLFOrdererNodeProperties": {
+      "description": "HLFOrdererNodeProperties payload in ARM Resource OrdererNode payload",
+      "type": "object",
+      "properties": {
+        "consortiumName": {
+          "description": "Gets or sets the consortium name to be created with the orderer",
+          "type": "string"
+        },
+        "provisioningState": {
+          "description": "Gets or sets HLF node provision state",
+          "enum": [
+            "NotSpecified",
+            "Updating",
+            "Deleting",
+            "Succeeded",
+            "Failed",
+            "Deleted"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "name": "HLFNodeProvisioningState",
+            "modelAsString": true
+          }
+        },
+        "dns": {
+          "description": "Gets or sets HLF node DNS",
+          "type": "string"
+        },
+        "mspId": {
+          "description": "Gets or sets orderer node mspid",
+          "type": "string"
+        }
+      }
+    },
+    "HLFOrdererNodeCollection": {
+      "description": "Collection of ARM Resource OrdererNode payload which exposed as Resource Provider request/response.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "Gets or sets collection of orderer nodes",
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/HLFOrdererNode"
+          }
+        }
+      }
+    },
+    "HLFPeerNode": {
+      "description": "HLF Peer Node Properties",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Gets ARM id of the resource",
+          "type": "string",
+          "readOnly": true
+        },
+        "type": {
+          "description": "Gets HLF Node Type to Peer",
+          "type": "string",
+          "readOnly": true
+        },
+        "properties": {
+          "$ref": "#/definitions/HLFPeerNodeProperties",
+          "description": "Gets or sets HLF Peer node properties"
+        },
+        "location": {
+          "description": "Gets or sets HLF Node Location",
+          "type": "string"
+        },
+        "name": {
+          "description": "Gets or sets HLF Node Name",
+          "type": "string"
+        }
+      }
+    },
+    "HLFPeerNodeProperties": {
+      "description": "HLFPeerNodeProperties payload in ARM Resource PeerNode paylaod",
+      "type": "object",
+      "properties": {
+        "db": {
+          "description": "Gets or sets DB for peer node",
+          "enum": [
+            "NotSpecified",
+            "LevelDB",
+            "CouchDB"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "name": "HLFDatabaseType",
+            "modelAsString": true
+          }
+        },
+        "provisioningState": {
+          "description": "Gets or sets HLF node provision state",
+          "enum": [
+            "NotSpecified",
+            "Updating",
+            "Deleting",
+            "Succeeded",
+            "Failed",
+            "Deleted"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "name": "HLFNodeProvisioningState",
+            "modelAsString": true
+          }
+        },
+        "dns": {
+          "description": "Gets or sets HLF node DNS",
+          "type": "string"
+        },
+        "mspId": {
+          "description": "Gets or sets orderer node mspid",
+          "type": "string"
+        }
+      }
+    },
+    "HLFPeerNodeCollection": {
+      "description": "Collection of ARM Resource PeerNode payload which exposed as Resource Provider request/response.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "Gets or sets collection of Peer nodes",
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/HLFPeerNode"
+          }
+        }
+      }
+    },
+    "ResourceTypeSkuCollection": {
+      "description": "Collection of resource type SKU",
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "Gets or sets collection of resource type SKU",
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResourceTypeSku"
+          }
+        }
+      }
+    },
+    "ResourceTypeSku": {
+      "description": "Resource type SKU",
+      "type": "object",
+      "properties": {
+        "resourceType": {
+          "description": "Gets or sets resource type",
+          "type": "string"
+        },
+        "skus": {
+          "description": "Gets or sets SKUs",
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SkuSetting"
+          }
+        }
+      }
+    },
+    "SkuSetting": {
+      "description": "SKU Setting",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Gets or sets SKU name",
+          "type": "string"
+        },
+        "tier": {
+          "description": "Gets or sets SKU tier",
+          "type": "string"
+        },
+        "locations": {
+          "description": "Gets or sets locations",
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "requiredFeatures": {
+          "description": "Gets or sets required features",
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Subscription": {
+      "description": "Subscription update format as presribed by ARM in the RP API v2 doc.",
+      "required": [
+        "state",
+        "registrationDate",
+        "properties"
+      ],
+      "type": "object",
+      "properties": {
+        "state": {
+          "description": "Gets or sets state of the subscription defined in the Subscription State Enum.",
+          "enum": [
+            "Registered",
+            "Unregistered",
+            "Warned",
+            "Suspended",
+            "Deleted"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "name": "SubscriptionState",
+            "modelAsString": true
+          }
+        },
+        "registrationDate": {
+          "description": "Gets or sets registration date property.",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/SubscriptionRequestProperties",
+          "description": "Gets or sets subscription request properties."
+        }
+      }
+    },
+    "SubscriptionRequestProperties": {
+      "description": "Subscription Request Properties.",
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "description": "Gets or sets the Tenant Id.",
+          "type": "string"
+        },
+        "locationPlacementId": {
+          "description": "Gets or sets the Location Placement Id",
+          "type": "string"
+        },
+        "quotaId": {
+          "description": "Gets or sets the Quota Id.",
+          "type": "string"
+        },
+        "registeredFeatures": {
+          "description": "Gets or sets the Registered Features.",
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RegisteredFeatures"
+          }
+        }
+      }
+    },
+    "RegisteredFeatures": {
+      "description": "Registered Features object.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Gets or sets the Name.",
+          "type": "string"
+        },
+        "state": {
+          "description": "Gets or sets the state.",
+          "type": "string"
         }
       }
     },
     "TransactionNode": {
+      "description": "ARM Resource TransactionNode payload which exposed as Resource Provider request/response.",
       "type": "object",
       "properties": {
         "location": {
+          "description": "Gets or sets transaction node location",
           "type": "string"
         },
         "name": {
+          "description": "Gets or sets transaction node name",
           "type": "string"
         },
         "properties": {
-          "$ref": "#/definitions/TransactionNodeProperties"
+          "$ref": "#/definitions/TransactionNodeProperties",
+          "description": "Gets or sets blockchain member properties"
         },
         "type": {
-          "type": "string"
+          "description": "Gets transaction node ARM resource type",
+          "type": "string",
+          "readOnly": true
         },
         "id": {
-          "type": "string"
+          "description": "Gets transaction node ARM resource id",
+          "type": "string",
+          "readOnly": true
         }
       }
     },
     "TransactionNodeProperties": {
+      "description": "TransactionNodeProperties payload in ARM Resource TransactionNode paylaod",
       "type": "object",
-      "required": [
-        "provisioningState"
-      ],
       "properties": {
         "provisioningState": {
-          "$ref": "#/definitions/NodeProvisioningState"
+          "description": "Gets or sets blockchain member provision state",
+          "enum": [
+            "NotSpecified",
+            "Updating",
+            "Deleting",
+            "Succeeded",
+            "Failed"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "name": "NodeProvisioningState",
+            "modelAsString": true
+          }
         },
         "dns": {
-          "type": "string"
+          "description": "Gets or sets transaction node dns endpoint",
+          "type": "string",
+          "readOnly": true
         },
         "publicKey": {
+          "description": "Gets or sets transaction node public key",
           "type": "string"
         },
         "userName": {
+          "description": "Gets or sets transaction node dns endpoint basic auth user name",
           "type": "string"
         },
         "password": {
+          "description": "Gets or sets transaction node dns endpoint basic auth password",
           "type": "string"
         },
         "firewallRules": {
+          "description": "Gets or sets firewall rules",
+          "uniqueItems": false,
           "type": "array",
           "items": {
             "$ref": "#/definitions/FirewallRule"
@@ -4461,10 +2786,31 @@
         }
       }
     },
+    "FirewallRule": {
+      "description": "Ip range for firewall rules",
+      "type": "object",
+      "properties": {
+        "ruleName": {
+          "description": "Gets or sets the name of firewall rules",
+          "type": "string"
+        },
+        "startIpAddress": {
+          "description": "Gets or sets start ip address of the firewall rule range",
+          "type": "string"
+        },
+        "endIpAddress": {
+          "description": "Gets or sets end ip address of the firewall rule rage",
+          "type": "string"
+        }
+      }
+    },
     "TransactionNodeCollection": {
+      "description": "Collection of ARM Resource TransactionNode payload which exposed as Resource Provider request/response.",
       "type": "object",
       "properties": {
         "value": {
+          "description": "Gets or sets collection of transaction nodes",
+          "uniqueItems": false,
           "type": "array",
           "items": {
             "$ref": "#/definitions/TransactionNode"
@@ -4472,5 +2818,50 @@
         }
       }
     }
-  }
+  },
+  "parameters": {
+    "ApiVersionParameter": {
+      "name": "api-version",
+      "in": "query",
+      "description": "Client Api Version.",
+      "required": true,
+      "type": "string",
+      "enum": [
+        "2018-06-01-preview"
+      ]
+    },
+    "SubscriptionIdParameter": {
+      "name": "subscriptionId",
+      "in": "path",
+      "description": "Gets subscription Id which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+      "required": true,
+      "type": "string"
+    },
+    "ResourceGroupParameter": {
+      "name": "resourceGroupName",
+      "in": "path",
+      "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    }
+  },
+  "securityDefinitions": {
+    "azure_auth": {
+      "flow": "implicit",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "scopes": {
+        "user_impersonation": "impersonate your user account"
+      },
+      "type": "oauth2",
+      "description": "Azure Active Directory OAuth2 Flow"
+    }
+  },
+  "security": [
+    {
+      "azure_auth": [
+        "user_impersonation"
+      ]
+    }
+  ]
 }
