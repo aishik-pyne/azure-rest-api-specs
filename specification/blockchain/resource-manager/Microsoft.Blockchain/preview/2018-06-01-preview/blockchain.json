@@ -305,17 +305,10 @@
             "type": "string"
           },
           {
-<<<<<<< HEAD
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-=======
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/ResourceGroupParameter"
@@ -361,17 +354,10 @@
             "type": "string"
           },
           {
-<<<<<<< HEAD
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-=======
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/ResourceGroupParameter"
@@ -419,35 +405,11 @@
             "description": "api key to be regenerate",
             "required": false,
             "schema": {
-<<<<<<< HEAD
               "$ref": "#/definitions/ApiKey"
             }
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
-=======
-              "$ref": "#/definitions/NameAvailabilityRequest"
-            },
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -490,32 +452,10 @@
             "in": "path",
             "description": "Blockchain member name",
             "required": true,
-<<<<<<< HEAD
             "type": "string"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
-=======
-            "x-nullable": true
-          },
-          {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -569,17 +509,10 @@
             "format": "int32"
           },
           {
-<<<<<<< HEAD
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-=======
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/ResourceGroupParameter"
@@ -634,17 +567,10 @@
             "format": "int32"
           },
           {
-<<<<<<< HEAD
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-=======
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/ResourceGroupParameter"
@@ -705,17 +631,10 @@
             "type": "boolean"
           },
           {
-<<<<<<< HEAD
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-=======
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/ResourceGroupParameter"
@@ -759,17 +678,10 @@
             "type": "string"
           },
           {
-<<<<<<< HEAD
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-=======
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/ResourceGroupParameter"
@@ -815,17 +727,10 @@
             "type": "string"
           },
           {
-<<<<<<< HEAD
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-=======
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/ResourceGroupParameter"
@@ -912,7 +817,6 @@
         "operationId": "Locations_ListAvailableConsortiums",
         "parameters": [
           {
-<<<<<<< HEAD
             "name": "locationName",
             "in": "path",
             "required": true,
@@ -920,12 +824,6 @@
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
-=======
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1050,17 +948,10 @@
             "type": "string"
           },
           {
-<<<<<<< HEAD
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-=======
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/ResourceGroupParameter"
@@ -1168,17 +1059,10 @@
             "type": "string"
           },
           {
-<<<<<<< HEAD
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-=======
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/ResourceGroupParameter"
@@ -1227,17 +1111,10 @@
             "type": "string"
           },
           {
-<<<<<<< HEAD
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-=======
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/ResourceGroupParameter"
@@ -1290,17 +1167,10 @@
             "type": "string"
           },
           {
-<<<<<<< HEAD
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-=======
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/ResourceGroupParameter"
@@ -1348,17 +1218,10 @@
             "type": "string"
           },
           {
-<<<<<<< HEAD
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-=======
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/ResourceGroupParameter"
@@ -1413,17 +1276,10 @@
             "type": "string"
           },
           {
-<<<<<<< HEAD
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-=======
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/ResourceGroupParameter"
@@ -1473,17 +1329,10 @@
             "type": "string"
           },
           {
-<<<<<<< HEAD
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-=======
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/ResourceGroupParameter"
@@ -1522,46 +1371,7 @@
         "operationId": "Skus_List",
         "parameters": [
           {
-<<<<<<< HEAD
             "$ref": "#/parameters/ApiVersionParameter"
-=======
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsClosed",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           }
         ],
         "responses": {
@@ -1588,7 +1398,6 @@
         "operationId": "Subscriptions_Put",
         "parameters": [
           {
-<<<<<<< HEAD
             "name": "subscriptionRequest",
             "in": "body",
             "description": "subscriptionRequest",
@@ -1599,31 +1408,6 @@
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
-=======
-            "type": "string",
-            "name": "subscriptionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": true
-          },
-          {
-            "type": "boolean",
-            "name": "IsCancellationRequested",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "CanBeCanceled",
-            "in": "query",
-            "x-nullable": false
-          },
-          {
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1664,17 +1448,10 @@
             "type": "string"
           },
           {
-<<<<<<< HEAD
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-=======
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/ResourceGroupParameter"
@@ -1731,17 +1508,10 @@
             }
           },
           {
-<<<<<<< HEAD
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-=======
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/ResourceGroupParameter"
@@ -1793,17 +1563,10 @@
             "type": "string"
           },
           {
-<<<<<<< HEAD
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-=======
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/ResourceGroupParameter"
@@ -2020,17 +1783,10 @@
             }
           },
           {
-<<<<<<< HEAD
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
-=======
-            "type": "boolean",
-            "name": "WaitHandle.SafeWaitHandle.IsInvalid",
-            "in": "query",
-            "x-nullable": false
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
           },
           {
             "$ref": "#/parameters/ResourceGroupParameter"
@@ -2492,7 +2248,6 @@
         }
       }
     },
-<<<<<<< HEAD
     "Peer": {
       "description": "Gets or sets Peer",
       "type": "object",
@@ -2503,8 +2258,6 @@
         }
       }
     },
-=======
->>>>>>> ab22fbfa8c013b1af576fa00fe116fee6431783a
     "HLFMembershipServiceProvider": {
       "description": "HLFMembershipServiceProvider Properties",
       "type": "object",
