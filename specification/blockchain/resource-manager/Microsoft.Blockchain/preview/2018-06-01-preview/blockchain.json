@@ -66,7 +66,7 @@
           "BlockchainMember"
         ],
         "description": "Create blockchain member",
-        "operationId": "BlockchainMembers_Put",
+        "operationId": "BlockchainMembers_Create",
         "parameters": [
           {
             "name": "blockchainMemberName",
@@ -113,8 +113,8 @@
         },
         "x-ms-long-running-operation": true,
         "x-ms-examples": {
-          "BlockchainMembers_Put": {
-            "$ref": "./examples/BlockchainMembers_Put.json"
+          "BlockchainMembers_Create": {
+            "$ref": "./examples/BlockchainMembers_Create.json"
           }
         }
       },
@@ -144,6 +144,9 @@
         ],
         "responses": {
           "202": {
+            "description": "Success"
+          },
+          "204": {
             "description": "Success"
           },
           "400": {
@@ -390,7 +393,7 @@
           "BlockchainMember"
         ],
         "description": "Regenerate blockchain member api key",
-        "operationId": "BlockchainMembers_RegenerateApiKeys",
+        "operationId": "BlockchainMembers_ListRegenerateApiKeys",
         "parameters": [
           {
             "name": "blockchainMemberName",
@@ -433,170 +436,8 @@
           }
         },
         "x-ms-examples": {
-          "BlockchainMembers_RegenerateApiKeys": {
-            "$ref": "./examples/BlockchainMembers_RegenerateApiKeys.json"
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}/statusStatistics": {
-      "get": {
-        "tags": [
-          "BlockchainMemberMetric"
-        ],
-        "description": "Get blockchain member metric of status statistics",
-        "operationId": "BlockchainMemberMetrics_StatusStatistics",
-        "parameters": [
-          {
-            "name": "blockchainMemberName",
-            "in": "path",
-            "description": "Blockchain member name",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ResourceGroupParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/StatusStatistics"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "x-ms-examples": {
-          "BlockchainMemberMetrics_StatusStatistics": {
-            "$ref": "./examples/BlockchainMemberMetrics_StatusStatistics.json"
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}/blocks": {
-      "get": {
-        "tags": [
-          "BlockchainMemberMetric"
-        ],
-        "description": "Get blockchain member metric of blocks",
-        "operationId": "BlockchainMemberMetrics_Blocks",
-        "parameters": [
-          {
-            "name": "blockchainMemberName",
-            "in": "path",
-            "description": "Blockchain member name",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "count",
-            "in": "query",
-            "description": "Block count",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ResourceGroupParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "uniqueItems": false,
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Block"
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "x-ms-examples": {
-          "BlockchainMemberMetrics_Blocks": {
-            "$ref": "./examples/BlockchainMemberMetrics_Blocks.json"
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}/recentTransactions": {
-      "get": {
-        "tags": [
-          "BlockchainMemberMetric"
-        ],
-        "description": "Get blockchain member metric of recent transactions",
-        "operationId": "BlockchainMemberMetrics_RecentTransactions",
-        "parameters": [
-          {
-            "name": "blockchainMemberName",
-            "in": "path",
-            "description": "Blockchain member name",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "count",
-            "in": "query",
-            "description": "Transaction count",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ResourceGroupParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "uniqueItems": false,
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Transaction"
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "x-ms-examples": {
-          "BlockchainMemberMetrics_RecentTransactions": {
-            "$ref": "./examples/BlockchainMemberMetrics_RecentTransactions.json"
+          "BlockchainMembers_ListRegenerateApiKeys": {
+            "$ref": "./examples/BlockchainMembers_ListRegenerateApiKeys.json"
           }
         }
       }
@@ -668,7 +509,7 @@
           "HLFIdentity"
         ],
         "description": "Get HLF connection profile which includes the client connection options including the TLS CA root certificate information.",
-        "operationId": "HLFIdentitys_ListServiceConnectionProfile",
+        "operationId": "HLFIdentity_ListConnectionProfiles",
         "parameters": [
           {
             "name": "blockchainMemberName",
@@ -705,8 +546,8 @@
           }
         },
         "x-ms-examples": {
-          "HLFIdentitys_ListServiceConnectionProfile": {
-            "$ref": "./examples/HLFIdentitys_ListServiceConnectionProfile.json"
+          "HLFIdentity_ListConnectionProfiles": {
+            "$ref": "./examples/HLFIdentity_ListConnectionProfiles.json"
           }
         }
       }
@@ -717,7 +558,7 @@
           "HLFIdentity"
         ],
         "description": "List HLF Membership service provider certificate information",
-        "operationId": "HLFIdentitys_ListMemberMSP",
+        "operationId": "HLFIdentity_ListMemberMSP",
         "parameters": [
           {
             "name": "blockchainMemberName",
@@ -754,8 +595,8 @@
           }
         },
         "x-ms-examples": {
-          "HLFIdentitys_ListMemberMSP": {
-            "$ref": "./examples/HLFIdentitys_ListMemberMSP.json"
+          "HLFIdentity_ListMemberMSP": {
+            "$ref": "./examples/HLFIdentity_ListMemberMSP.json"
           }
         }
       }
@@ -769,6 +610,13 @@
         "operationId": "Locations_CheckNameAvailability",
         "parameters": [
           {
+            "name": "locationName",
+            "in": "path",
+            "description": "Location Name",
+            "required": true,
+            "type": "string"
+          },
+          {
             "name": "nameAvailabilityRequest",
             "in": "body",
             "description": "ARM NameAvailabilityRequest payload",
@@ -776,12 +624,6 @@
             "schema": {
               "$ref": "#/definitions/NameAvailabilityRequest"
             }
-          },
-          {
-            "name": "locationName",
-            "in": "path",
-            "required": true,
-            "type": "string"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -814,11 +656,12 @@
           "Location"
         ],
         "description": "List available consortiums for a subscription",
-        "operationId": "Locations_ListAvailableConsortiums",
+        "operationId": "Locations_ListConsortiums",
         "parameters": [
           {
             "name": "locationName",
             "in": "path",
+            "description": "Location Name",
             "required": true,
             "type": "string"
           },
@@ -841,8 +684,8 @@
           }
         },
         "x-ms-examples": {
-          "Locations_ListAvailableConsortiums": {
-            "$ref": "./examples/Locations_ListAvailableConsortiums.json"
+          "Locations_ListConsortiums": {
+            "$ref": "./examples/Locations_ListConsortiums.json"
           }
         }
       }
@@ -918,6 +761,9 @@
             "description": "Bad Request"
           }
         },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
         "x-ms-examples": {
           "Operations_List": {
             "$ref": "./examples/Operations_List.json"
@@ -979,120 +825,6 @@
             "$ref": "./examples/OrdererNodes_Get.json"
           }
         }
-      },
-      "put": {
-        "tags": [
-          "OrdererNode"
-        ],
-        "description": "Add Orderer node",
-        "operationId": "OrdererNodes_Create",
-        "parameters": [
-          {
-            "name": "blockchainMemberName",
-            "in": "path",
-            "description": "Blockchain member name",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "ordererNodeName",
-            "in": "path",
-            "description": "Orderer node name",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ResourceGroupParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/HLFOrdererNode"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "409": {
-            "description": "Conflict"
-          },
-          "500": {
-            "description": "Server Error"
-          }
-        },
-        "x-ms-examples": {
-          "OrdererNodes_Create": {
-            "$ref": "./examples/OrdererNodes_Create.json"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "OrdererNode"
-        ],
-        "description": "Remove Orderer node",
-        "operationId": "OrdererNodes_Delete",
-        "parameters": [
-          {
-            "name": "blockchainMemberName",
-            "in": "path",
-            "description": "Blockchain member name",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "ordererNodeName",
-            "in": "path",
-            "description": "Orderer node name",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ResourceGroupParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "type": "string"
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "409": {
-            "description": "Conflict"
-          },
-          "500": {
-            "description": "Server Error"
-          }
-        },
-        "x-ms-examples": {
-          "OrdererNodes_Delete": {
-            "$ref": "./examples/OrdererNodes_Delete.json"
-          }
-        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Blockchain/blockchainMembers/{blockchainMemberName}/ordererNodes": {
@@ -1136,6 +868,9 @@
           "500": {
             "description": "Server Error"
           }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
         },
         "x-ms-examples": {
           "OrdererNodes_List": {
@@ -1201,7 +936,7 @@
           "PeerNode"
         ],
         "description": "Add a Peer node",
-        "operationId": "PeerNodes_Add",
+        "operationId": "PeerNodes_Create",
         "parameters": [
           {
             "name": "blockchainMemberName",
@@ -1228,11 +963,14 @@
           }
         ],
         "responses": {
-          "202": {
+          "200": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/HLFPeerNode"
             }
+          },
+          "202": {
+            "description": "Success"
           },
           "400": {
             "description": "Bad Request"
@@ -1249,8 +987,8 @@
         },
         "x-ms-long-running-operation": true,
         "x-ms-examples": {
-          "PeerNodes_Add": {
-            "$ref": "./examples/PeerNodes_Add.json"
+          "PeerNodes_Create": {
+            "$ref": "./examples/PeerNodes_Create.json"
           }
         }
       },
@@ -1259,7 +997,7 @@
           "PeerNode"
         ],
         "description": "Remove a Peer node",
-        "operationId": "PeerNodes_Remove",
+        "operationId": "PeerNodes_Delete",
         "parameters": [
           {
             "name": "blockchainMemberName",
@@ -1292,6 +1030,9 @@
               "$ref": "#/definitions/HLFPeerNode"
             }
           },
+          "204": {
+            "description": "Success"
+          },
           "400": {
             "description": "Bad Request"
           },
@@ -1307,8 +1048,8 @@
         },
         "x-ms-long-running-operation": true,
         "x-ms-examples": {
-          "PeerNodes_Remove": {
-            "$ref": "./examples/PeerNodes_Remove.json"
+          "PeerNodes_Delete": {
+            "$ref": "./examples/PeerNodes_Delete.json"
           }
         }
       }
@@ -1358,69 +1099,6 @@
         "x-ms-examples": {
           "PeerNodes_List": {
             "$ref": "./examples/PeerNodes_List.json"
-          }
-        }
-      }
-    },
-    "/skus": {
-      "get": {
-        "tags": [
-          "Sku"
-        ],
-        "description": "List the resource type skus",
-        "operationId": "Skus_List",
-        "parameters": [
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/ResourceTypeSkuCollection"
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Skus_List": {
-            "$ref": "./examples/Skus_List.json"
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}": {
-      "put": {
-        "tags": [
-          "Subscription"
-        ],
-        "description": "Creates or updates a subscription for Microsoft.Blockchain resource provider. Currently there is noop in our scenario.",
-        "operationId": "Subscriptions_Put",
-        "parameters": [
-          {
-            "name": "subscriptionRequest",
-            "in": "body",
-            "description": "subscriptionRequest",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Subscription"
-            }
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        },
-        "x-ms-examples": {
-          "Subscriptions_Put": {
-            "$ref": "./examples/Subscriptions_Put.json"
           }
         }
       }
@@ -1482,7 +1160,7 @@
           "TransactionNode"
         ],
         "description": "Create or update transaction node",
-        "operationId": "TransactionNodes_Put",
+        "operationId": "TransactionNodes_Create",
         "parameters": [
           {
             "name": "blockchainMemberName",
@@ -1536,8 +1214,8 @@
         },
         "x-ms-long-running-operation": true,
         "x-ms-examples": {
-          "TransactionNodes_Put": {
-            "$ref": "./examples/TransactionNodes_Put.json"
+          "TransactionNodes_Create": {
+            "$ref": "./examples/TransactionNodes_Create.json"
           }
         }
       },
@@ -1576,6 +1254,9 @@
           "202": {
             "description": "Success"
           },
+          "204": {
+            "description": "Success"
+          },
           "400": {
             "description": "Bad Request"
           },
@@ -1595,7 +1276,7 @@
           "TransactionNode"
         ],
         "description": "Update transaction node",
-        "operationId": "TransactionNodes_Patch",
+        "operationId": "TransactionNodes_Update",
         "parameters": [
           {
             "name": "blockchainMemberName",
@@ -1649,8 +1330,8 @@
         },
         "x-ms-long-running-operation": true,
         "x-ms-examples": {
-          "TransactionNodes_Patch": {
-            "$ref": "./examples/TransactionNodes_Patch.json"
+          "TransactionNodes_Update": {
+            "$ref": "./examples/TransactionNodes_Update.json"
           }
         }
       }
@@ -1690,6 +1371,9 @@
           "400": {
             "description": "Bad Request"
           }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
         },
         "x-ms-examples": {
           "TransactionNodes_List": {
@@ -1757,7 +1441,7 @@
           "TransactionNode"
         ],
         "description": "Regenerate blockchain member api key",
-        "operationId": "TransactionNodes_RegenerateApiKeys",
+        "operationId": "TransactionNodes_ListRegenerateApiKeys",
         "parameters": [
           {
             "name": "blockchainMemberName",
@@ -1807,8 +1491,8 @@
           }
         },
         "x-ms-examples": {
-          "TransactionNodes_RegenerateApiKeys": {
-            "$ref": "./examples/TransactionNodes_RegenerateApiKeys.json"
+          "TransactionNodes_ListRegenerateApiKeys": {
+            "$ref": "./examples/TransactionNodes_ListRegenerateApiKeys.json"
           }
         }
       }
@@ -1818,15 +1502,12 @@
     "BlockchainMember": {
       "description": "ARM Resource BlockchainMember payload which exposed as Resource Provider request/response.",
       "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/TrackedResourceModel"
+        }
+      ],
       "properties": {
-        "location": {
-          "description": "Gets or sets blockchain member location",
-          "type": "string"
-        },
-        "name": {
-          "description": "Gets or sets blockchain member name",
-          "type": "string"
-        },
         "kind": {
           "description": "Gets blockchain kind",
           "type": "string",
@@ -1834,7 +1515,8 @@
         },
         "properties": {
           "$ref": "#/definitions/BlockchainMemberProperties",
-          "description": "Gets or sets blockchain member properties"
+          "description": "Gets or sets blockchain member properties",
+          "x-ms-client-flatten": true
         },
         "type": {
           "description": "Gets blockchain member ARM resource type",
@@ -1846,18 +1528,60 @@
           "type": "string",
           "readOnly": true
         },
+        "sku": {
+          "$ref": "#/definitions/Sku",
+          "description": "Gets or sets blockchain member sku"
+        },
+        "name": {
+          "description": "Gets or sets blockchain member name",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "TrackedResourceModel": {
+      "description": "The resource model definition for a ARM tracked top level resource.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ARMResourceModel"
+        }
+      ],
+      "properties": {
+        "location": {
+          "description": "Gets or sets blockchain member location. e.g. West US | East US | North Central US | South Central US.",
+          "type": "string"
+        },
         "tags": {
-          "description": "Gets or sets blockchain member tags",
+          "description": "Gets or sets tags of the service which is a list of key value pairs that describe the resource.",
           "type": "object",
           "additionalProperties": {
             "type": "string"
           }
-        },
-        "sku": {
-          "$ref": "#/definitions/Sku",
-          "description": "Gets or sets blockchain member sku"
         }
       }
+    },
+    "ARMResourceModel": {
+      "description": "The core properties of ARM resources.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Gets or sets blockchain member name",
+          "type": "string",
+          "readOnly": true
+        },
+        "type": {
+          "description": "Gets blockchain member ARM resource type",
+          "type": "string",
+          "readOnly": true
+        },
+        "id": {
+          "description": "Gets fully qualified resource Id for the resource.",
+          "type": "string",
+          "readOnly": true
+        }
+      },
+      "x-ms-azure-resource": true
     },
     "BlockchainMemberProperties": {
       "description": "BlockchainMemberProperties payload in ARM Resource BlockchainMember payload.",
@@ -1927,6 +1651,10 @@
           "items": {
             "$ref": "#/definitions/BlockchainMember"
           }
+        },
+        "nextLink": {
+          "description": "Gets or sets the URL the client should use to fetch the next page (per server side paging).\r\nIt's null for now, added for future use.",
+          "type": "string"
         }
       }
     },
@@ -1941,6 +1669,10 @@
           "items": {
             "$ref": "#/definitions/ConsortiumMember"
           }
+        },
+        "nextLink": {
+          "description": "Gets or sets the URL the client should use to fetch the next page (per server side paging).\r\nIt's null for now, added for future use.",
+          "type": "string"
         }
       }
     },
@@ -2005,92 +1737,6 @@
         "value": {
           "description": "Gets or sets api key value",
           "type": "string"
-        }
-      }
-    },
-    "StatusStatistics": {
-      "description": "Status for the blockchain application",
-      "type": "object",
-      "properties": {
-        "tps": {
-          "format": "double",
-          "description": "Gets or sets transaction per seconds",
-          "type": "number"
-        },
-        "rangedTxns": {
-          "format": "int32",
-          "description": "Gets or sets number of transactions processed in specific time range",
-          "type": "integer"
-        },
-        "blockHeight": {
-          "format": "int64",
-          "description": "Gets or sets block height",
-          "type": "integer"
-        }
-      }
-    },
-    "Block": {
-      "description": "Block",
-      "type": "object",
-      "properties": {
-        "hash": {
-          "description": "Gets or sets block hash",
-          "type": "string"
-        },
-        "parent": {
-          "description": "Gets or sets parent block hash",
-          "type": "string"
-        },
-        "miner": {
-          "description": "Gets or sets miner address",
-          "type": "string"
-        },
-        "number": {
-          "description": "Gets or sets block number",
-          "type": "string"
-        },
-        "size": {
-          "description": "Gets or sets the byte size to the block",
-          "type": "string"
-        },
-        "timestamp": {
-          "description": "Gets or sets the block unix timestamp in seconds",
-          "type": "string"
-        },
-        "transactions": {
-          "description": "Gets or sets transactions precessed in the block",
-          "uniqueItems": false,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Transaction"
-          }
-        }
-      }
-    },
-    "Transaction": {
-      "description": "Blockchain transaction",
-      "type": "object",
-      "properties": {
-        "from": {
-          "description": "Gets or sets the source of the transaction",
-          "type": "string"
-        },
-        "to": {
-          "description": "Gets or sets the destnation of the transaction",
-          "type": "string"
-        },
-        "hash": {
-          "description": "Gets or sets the transaction hash",
-          "type": "string"
-        },
-        "value": {
-          "description": "Gets or sets the amount of value transferred",
-          "type": "string"
-        },
-        "timestamp": {
-          "format": "int64",
-          "description": "Gets or sets the unix timestamp occurred",
-          "type": "integer"
         }
       }
     },
@@ -2262,7 +1908,7 @@
       "description": "HLFMembershipServiceProvider Properties",
       "type": "object",
       "properties": {
-        "msp_id": {
+        "mspId": {
           "description": "Gets or sets Membership service provider identifier",
           "type": "string"
         },
@@ -2329,6 +1975,10 @@
           "items": {
             "$ref": "#/definitions/Consortium"
           }
+        },
+        "nextLink": {
+          "description": "Gets or sets the URL the client should use to fetch the next page (per server side paging).\r\nIt's null for now, added for future use.",
+          "type": "string"
         }
       }
     },
@@ -2368,6 +2018,10 @@
           "items": {
             "$ref": "#/definitions/ResourceProviderOperation"
           }
+        },
+        "nextLink": {
+          "description": "Gets or sets the URL the client should use to fetch the next page (per server side paging).\r\nIt's null for now, added for future use.",
+          "type": "string"
         }
       }
     },
@@ -2418,27 +2072,19 @@
     "HLFOrdererNode": {
       "description": "HLF Orderer Node Properties",
       "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ARMResourceModel"
+        }
+      ],
       "properties": {
-        "id": {
-          "description": "Gets ARM id of the resource",
-          "type": "string",
-          "readOnly": true
-        },
-        "type": {
-          "description": "Gets HLF Node Type to Orderer",
-          "type": "string",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/HLFOrdererNodeProperties",
-          "description": "Gets or sets HLF Orderer node properties"
+          "description": "Gets or sets HLF Orderer node properties",
+          "x-ms-client-flatten": true
         },
         "location": {
           "description": "Gets or sets HLF Node Location",
-          "type": "string"
-        },
-        "name": {
-          "description": "Gets or sets HLF Node Name",
           "type": "string"
         }
       }
@@ -2488,33 +2134,29 @@
           "items": {
             "$ref": "#/definitions/HLFOrdererNode"
           }
+        },
+        "nextLink": {
+          "description": "Gets or sets the URL the client should use to fetch the next page (per server side paging).\r\nIt's null for now, added for future use.",
+          "type": "string"
         }
       }
     },
     "HLFPeerNode": {
       "description": "HLF Peer Node Properties",
       "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ARMResourceModel"
+        }
+      ],
       "properties": {
-        "id": {
-          "description": "Gets ARM id of the resource",
-          "type": "string",
-          "readOnly": true
-        },
-        "type": {
-          "description": "Gets HLF Node Type to Peer",
-          "type": "string",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/HLFPeerNodeProperties",
-          "description": "Gets or sets HLF Peer node properties"
+          "description": "Gets or sets HLF Peer node properties",
+          "x-ms-client-flatten": true
         },
         "location": {
           "description": "Gets or sets HLF Node Location",
-          "type": "string"
-        },
-        "name": {
-          "description": "Gets or sets HLF Node Name",
           "type": "string"
         }
       }
@@ -2573,141 +2215,9 @@
           "items": {
             "$ref": "#/definitions/HLFPeerNode"
           }
-        }
-      }
-    },
-    "ResourceTypeSkuCollection": {
-      "description": "Collection of resource type SKU",
-      "type": "object",
-      "properties": {
-        "value": {
-          "description": "Gets or sets collection of resource type SKU",
-          "uniqueItems": false,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ResourceTypeSku"
-          }
-        }
-      }
-    },
-    "ResourceTypeSku": {
-      "description": "Resource type SKU",
-      "type": "object",
-      "properties": {
-        "resourceType": {
-          "description": "Gets or sets resource type",
-          "type": "string"
         },
-        "skus": {
-          "description": "Gets or sets SKUs",
-          "uniqueItems": false,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SkuSetting"
-          }
-        }
-      }
-    },
-    "SkuSetting": {
-      "description": "SKU Setting",
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "Gets or sets SKU name",
-          "type": "string"
-        },
-        "tier": {
-          "description": "Gets or sets SKU tier",
-          "type": "string"
-        },
-        "locations": {
-          "description": "Gets or sets locations",
-          "uniqueItems": false,
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "requiredFeatures": {
-          "description": "Gets or sets required features",
-          "uniqueItems": false,
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "Subscription": {
-      "description": "Subscription update format as presribed by ARM in the RP API v2 doc.",
-      "required": [
-        "state",
-        "registrationDate",
-        "properties"
-      ],
-      "type": "object",
-      "properties": {
-        "state": {
-          "description": "Gets or sets state of the subscription defined in the Subscription State Enum.",
-          "enum": [
-            "Registered",
-            "Unregistered",
-            "Warned",
-            "Suspended",
-            "Deleted"
-          ],
-          "type": "string",
-          "x-ms-enum": {
-            "name": "SubscriptionState",
-            "modelAsString": true
-          }
-        },
-        "registrationDate": {
-          "description": "Gets or sets registration date property.",
-          "type": "string"
-        },
-        "properties": {
-          "$ref": "#/definitions/SubscriptionRequestProperties",
-          "description": "Gets or sets subscription request properties."
-        }
-      }
-    },
-    "SubscriptionRequestProperties": {
-      "description": "Subscription Request Properties.",
-      "type": "object",
-      "properties": {
-        "tenantId": {
-          "description": "Gets or sets the Tenant Id.",
-          "type": "string"
-        },
-        "locationPlacementId": {
-          "description": "Gets or sets the Location Placement Id",
-          "type": "string"
-        },
-        "quotaId": {
-          "description": "Gets or sets the Quota Id.",
-          "type": "string"
-        },
-        "registeredFeatures": {
-          "description": "Gets or sets the Registered Features.",
-          "uniqueItems": false,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/RegisteredFeatures"
-          }
-        }
-      }
-    },
-    "RegisteredFeatures": {
-      "description": "Registered Features object.",
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "Gets or sets the Name.",
-          "type": "string"
-        },
-        "state": {
-          "description": "Gets or sets the state.",
+        "nextLink": {
+          "description": "Gets or sets the URL the client should use to fetch the next page (per server side paging).\r\nIt's null for now, added for future use.",
           "type": "string"
         }
       }
@@ -2715,28 +2225,20 @@
     "TransactionNode": {
       "description": "ARM Resource TransactionNode payload which exposed as Resource Provider request/response.",
       "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ARMResourceModel"
+        }
+      ],
       "properties": {
         "location": {
           "description": "Gets or sets transaction node location",
           "type": "string"
         },
-        "name": {
-          "description": "Gets or sets transaction node name",
-          "type": "string"
-        },
         "properties": {
           "$ref": "#/definitions/TransactionNodeProperties",
-          "description": "Gets or sets blockchain member properties"
-        },
-        "type": {
-          "description": "Gets transaction node ARM resource type",
-          "type": "string",
-          "readOnly": true
-        },
-        "id": {
-          "description": "Gets transaction node ARM resource id",
-          "type": "string",
-          "readOnly": true
+          "description": "Gets or sets blockchain member properties",
+          "x-ms-client-flatten": true
         }
       }
     },
@@ -2815,6 +2317,10 @@
           "items": {
             "$ref": "#/definitions/TransactionNode"
           }
+        },
+        "nextLink": {
+          "description": "Gets or sets the URL the client should use to fetch the next page (per server side paging).\r\nIt's null for now, added for future use.",
+          "type": "string"
         }
       }
     }

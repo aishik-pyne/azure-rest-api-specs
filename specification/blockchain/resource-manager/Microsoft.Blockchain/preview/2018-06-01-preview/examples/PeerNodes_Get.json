@@ -1,0 +1,26 @@
+{
+  "parameters": {
+    "subscriptionId": "51766542-3ed7-4a72-a187-0c8ab644ddab",
+    "resourceGroupName": "mygroup",
+    "blockchainMemberName": "contosemember1",
+    "peerNodeName": "peer1",
+    "api-version": "2018-06-01-preview"
+  },
+  "responses": {
+    "200": {
+      "headers": {},
+      "body": {
+        "location": "southeastasia",
+        "name": "peer1",
+        "properties": {
+          "db": "CouchDB",
+          "provisioningState": "Succeeded",
+          "dns": "peer1.contosemember1.blockchain.ppe.azure-int.net",
+          "mspId": "peer1"
+        },
+        "type": "Microsoft.Blockchain/blockchainMembers/peerNodes",
+        "id": "/subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourceGroups/mygroup/providers/Microsoft.Blockchain/blockchainMembers/contosemember1/peerNodes/peer1"
+      }
+    }
+  }
+}

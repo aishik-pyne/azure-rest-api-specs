@@ -1,0 +1,21 @@
+{
+  "parameters": {
+    "subscriptionId": "51766542-3ed7-4a72-a187-0c8ab644ddab",
+    "resourceGroupName": "mygroup",
+    "blockchainMemberName": "contosemember1",
+    "operationId": "4288d9d4-f635-48a1-a046-458d821fcfc5",
+    "api-version": "2018-06-01-preview"
+  },
+  "responses": {
+    "202": {
+      "headers": {
+        "location": "https://management.azure.com/subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourceGroups/mygroup/providers/Microsoft.Blockchain/blockchainMembers/contosemember1/operations/4288d9d4-f635-48a1-a046-458d821fcfc5"
+      },
+      "body": {}
+    },
+    "204": {
+      "headers": {},
+      "body": {}
+    }
+  }
+}
